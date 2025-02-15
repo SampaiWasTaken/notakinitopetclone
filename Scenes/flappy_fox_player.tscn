@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://btu2l4loe4mu5"]
+
+[ext_resource type="Texture2D" uid="uid://dpb41qs2m8v3d" path="res://Assets/Fox Sprite Sheet 28x20 RED.png" id="1_2y28f"]
+[ext_resource type="Script" path="res://Scripts/flappy_fox_player.gd" id="1_ppbi5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efyam"]
+atlas = ExtResource("1_2y28f")
+region = Rect2(0, 60, 28, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8q4f"]
+atlas = ExtResource("1_2y28f")
+region = Rect2(28, 60, 28, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6e2tv"]
+atlas = ExtResource("1_2y28f")
+region = Rect2(56, 60, 28, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grr31"]
+atlas = ExtResource("1_2y28f")
+region = Rect2(84, 60, 28, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojce3"]
+atlas = ExtResource("1_2y28f")
+region = Rect2(112, 60, 28, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8yat1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efyam")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8q4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6e2tv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grr31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojce3")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_byncj"]
+radius = 25.0
+height = 132.0
+
+[node name="FlappyFox" type="CharacterBody2D"]
+script = ExtResource("1_ppbi5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_8yat1")
+animation = &"run"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 31)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_byncj")
