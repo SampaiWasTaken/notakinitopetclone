@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckwy6bykoaj66"]
+
+[ext_resource type="PackedScene" uid="uid://bh0pejuvdeg81" path="res://Scenes/UI.tscn" id="1_icwyy"]
+[ext_resource type="Texture2D" uid="uid://bikcy4uq23o5u" path="res://icon.svg" id="2_qsy5j"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_10sme"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qsy5j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node"]
+
+[node name="Control" parent="." instance=ExtResource("1_icwyy")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(175, 377)
+sprite_frames = SubResource("SpriteFrames_10sme")

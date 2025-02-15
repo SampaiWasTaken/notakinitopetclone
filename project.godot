@@ -13,3 +13,11 @@ config_version=5
 config/name="NotAKinitoPetClone"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=360
+window/size/viewport_height=640
+window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
+window/handheld/orientation=1
