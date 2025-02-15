@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckwy6bykoaj66"]
+[gd_scene load_steps=6 format=3 uid="uid://ckwy6bykoaj66"]
 
 [ext_resource type="PackedScene" uid="uid://bh0pejuvdeg81" path="res://Scenes/UI.tscn" id="1_icwyy"]
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_w7e5r"]
+[ext_resource type="Script" path="res://Scripts/window.gd" id="2_f4iug"]
 [ext_resource type="Texture2D" uid="uid://bikcy4uq23o5u" path="res://icon.svg" id="2_qsy5j"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_10sme"]
@@ -15,9 +17,35 @@ animations = [{
 }]
 
 [node name="Node2D" type="Node"]
+script = ExtResource("1_w7e5r")
 
-[node name="Control" parent="." instance=ExtResource("1_icwyy")]
+[node name="Window" type="Window" parent="."]
+initial_position = 2
+script = ExtResource("2_f4iug")
+
+[node name="Camera2D" type="Camera2D" parent="Window"]
+
+[node name="Window2" type="Window" parent="."]
+auto_translate_mode = 1
+initial_position = 2
+size = Vector2i(1205, 535)
+always_on_top = true
+script = ExtResource("2_f4iug")
+
+[node name="Camera2D" type="Camera2D" parent="Window2"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(175, 377)
+position = Vector2(1642, 1045)
+scale = Vector2(13.7578, 9.70313)
 sprite_frames = SubResource("SpriteFrames_10sme")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1856, 1219)
+texture = ExtResource("2_qsy5j")
+
+[node name="Window3" type="Window" parent="."]
+initial_position = 1
+size = Vector2i(360, 640)
+unresizable = true
+
+[node name="Control" parent="Window3" instance=ExtResource("1_icwyy")]
