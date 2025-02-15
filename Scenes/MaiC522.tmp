@@ -252,7 +252,7 @@ sprite_frames = SubResource("SpriteFrames_10sme")
 animation = &"exhausted"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1654, 914)
+position = Vector2(1856, 1219)
 texture = ExtResource("2_qsy5j")
 
 [node name="Window3" type="Window" parent="."]

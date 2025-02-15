@@ -46,19 +46,20 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_byncj"]
-radius = 25.0
-height = 132.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kxyde"]
+size = Vector2(70.5001, 138)
 
 [node name="FlappyFox" type="CharacterBody2D"]
+collision_mask = 2
 script = ExtResource("1_ppbi5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(7, 7)
 sprite_frames = SubResource("SpriteFrames_8yat1")
 animation = &"run"
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, 31)
+position = Vector2(4.97746e-05, 34.2501)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_byncj")
+shape = SubResource("RectangleShape2D_kxyde")
