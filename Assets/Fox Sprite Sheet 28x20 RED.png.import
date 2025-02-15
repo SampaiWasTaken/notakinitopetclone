@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://civbdfxqb4v7e"
-path="res://.godot/imported/roguelikeChar_transparent.png-d8f8406077364854e1955be42c5439ba.ctex"
+uid="uid://dpb41qs2m8v3d"
+path="res://.godot/imported/Fox Sprite Sheet 28x20 RED.png-52ab5568b6e87aa1d8979b5e5e4f39bc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/roguelikeChar_transparent.png"
-dest_files=["res://.godot/imported/roguelikeChar_transparent.png-d8f8406077364854e1955be42c5439ba.ctex"]
+source_file="res://Assets/Fox Sprite Sheet 28x20 RED.png"
+dest_files=["res://.godot/imported/Fox Sprite Sheet 28x20 RED.png-52ab5568b6e87aa1d8979b5e5e4f39bc.ctex"]
 
 [params]
 
