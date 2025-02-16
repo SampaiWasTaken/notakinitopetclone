@@ -3,6 +3,10 @@ signal hit
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
+	var anim = "tree" + str(randi_range(1, 3))
+	$AnimatedSprite2D.play(anim)
+
 	pass # Replace with function body.
 
 

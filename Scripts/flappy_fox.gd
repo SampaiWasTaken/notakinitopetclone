@@ -1,6 +1,7 @@
 extends Node
 
 @export var treeScene : PackedScene
+@export var treeScene2 : PackedScene
 
 var game_running : bool
 var game_over : bool
@@ -12,9 +13,10 @@ var ground_height : int
 var trees : Array
 const PIPE_DELAY : int = 600
 const PIPE_RANGE : int = 200
-
+var scenes
 
 func _ready():
+	scenes = [treeScene, treeScene2]
 	screen_size = get_window().size
 	ground_height = 300
 	new_game()
@@ -29,7 +31,7 @@ func new_game():
 	#$GameOver.hide()
 	get_tree().call_group("tree", "queue_free")
 	trees.clear()
-	#generate starting pipes
+	#generate starting tree
 	generate_tree()
 	$FlappyFox.reset()
 	
@@ -40,24 +42,22 @@ func _input(event):
 				if game_running == false:
 					start_game()
 				else:
-					if $FlappyFox.flying:
-						$FlappyFox.flap()
+					if $FlappyFox.is_on_floor():
+						$FlappyFox.jump()
 
 func start_game():
 	game_running = true
-	$FlappyFox.flying = true
-	$FlappyFox.flap()
 	#start pipe timer
 	$Timer.start()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	
 func _process(delta):
 	if game_running:
-		$FlappyFox.position.x += 5
+		$FlappyFox.position.x += 3
 	
 func generate_tree():
-	print("tree")
-	var tree = treeScene.instantiate()
+	
+	var tree = scenes.pick_random().instantiate()
+	tree.scale = Vector2(0.8, 0.8)
 	tree.position.x = $FlappyFox.position.x + PIPE_DELAY
 	tree.position.y = ground_height
 	tree.hit.connect(fox_hit)
@@ -67,6 +67,6 @@ func generate_tree():
 func fox_hit():
 	print("hit")
 
-
 func _on_timer_timeout() -> void:
+	$Timer.wait_time = randf_range(0.7, 1.7)
 	generate_tree()

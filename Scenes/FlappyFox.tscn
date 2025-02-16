@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://egyck2vosepn"]
+[gd_scene load_steps=13 format=3 uid="uid://egyck2vosepn"]
 
 [ext_resource type="Texture2D" uid="uid://d0dqj8afkjlb5" path="res://Assets/Parallax/1-Background.png" id="1_i1rbg"]
 [ext_resource type="Script" path="res://Scripts/flappy_fox.gd" id="1_n4ghd"]
 [ext_resource type="Texture2D" uid="uid://dtaughv3akdxu" path="res://Assets/Parallax/2-super far.png" id="2_vuy23"]
 [ext_resource type="PackedScene" uid="uid://c6d0gtu5sq54m" path="res://Scenes/ObstacleTree.tscn" id="2_ye56o"]
+[ext_resource type="PackedScene" uid="uid://brdknytupub3f" path="res://Scenes/ObstacleTree2.tscn" id="3_7llvq"]
 [ext_resource type="Texture2D" uid="uid://7ym6b7ffixnm" path="res://Assets/Parallax/3-far.png" id="3_ii1fe"]
 [ext_resource type="Texture2D" uid="uid://mau47agm6der" path="res://Assets/Parallax/4-far light.png" id="4_wvdnt"]
 [ext_resource type="Texture2D" uid="uid://7ryi001os4l6" path="res://Assets/Parallax/5-close.png" id="5_qyi56"]
@@ -17,6 +18,7 @@ size = Vector2(2823.74, 97)
 [node name="Node2D" type="Node"]
 script = ExtResource("1_n4ghd")
 treeScene = ExtResource("2_ye56o")
+treeScene2 = ExtResource("3_7llvq")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 1.5
@@ -78,7 +80,6 @@ centered = false
 
 [node name="Parallax2D7" type="Parallax2D" parent="."]
 scale = Vector2(4, 4)
-scroll_scale = Vector2(0.8, 1)
 repeat_size = Vector2(314, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D7"]
@@ -100,9 +101,6 @@ shape = SubResource("RectangleShape2D_2mjad")
 [node name="FlappyFox" parent="." instance=ExtResource("8_ecxg6")]
 position = Vector2(40, 254)
 scale = Vector2(0.5, 0.5)
-MAX_VEL = 200
-FLAP_SPEED = -500
-JUMP_VELOCITY = -400.0
 
 [node name="Camera2D2" type="Camera2D" parent="FlappyFox"]
 position = Vector2(2, -80)

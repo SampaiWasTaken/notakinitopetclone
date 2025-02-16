@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dpb41qs2m8v3d" path="res://Assets/Fox Sprite Sheet 28x20 RED.png" id="2_e21dc"]
 [ext_resource type="Script" path="res://Scripts/window.gd" id="2_f4iug"]
 [ext_resource type="Texture2D" uid="uid://bikcy4uq23o5u" path="res://icon.svg" id="2_qsy5j"]
-[ext_resource type="Script" path="res://Scenes/mainFox.gd" id="5_da5v2"]
+[ext_resource type="Script" path="res://Scripts/mainFox.gd" id="5_da5v2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1s3kp"]
 atlas = ExtResource("2_e21dc")
