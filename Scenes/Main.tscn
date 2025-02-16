@@ -275,4 +275,5 @@ frame_progress = 1.0
 [node name="Control" parent="Window3" instance=ExtResource("1_icwyy")]
 
 [connection signal="animation_finished" from="Window3/Fox" to="." method="_on_fox_animation_finished"]
+[connection signal="animation_finished" from="Window3/Fox" to="Window3" method="_on_fox_animation_finished"]
 [connection signal="petBtnPressed" from="Window3/Control" to="Window3" method="_on_control_pet_btn_pressed"]

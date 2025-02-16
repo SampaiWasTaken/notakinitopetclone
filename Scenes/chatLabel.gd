@@ -10,7 +10,7 @@ var food_blips = ["Are you feeding me... or keeping me here?", "This doesn’t t
 var pet_blips = ["Are you sure this is real?", "Your hands feel... warm.", "You’re different from the others.", "You’re leaving something behind. Can’t you feel it?",
 "I don’t know if I like this. But I don’t want you to stop."]
 
-var greeting = "So.... Hungry...."
+var greeting = "I can see you."
 var visible_text = ""
 
 var talking = false
@@ -46,9 +46,9 @@ func _on_chat_timer_timeout() -> void:
 
 func _on_feed_btn_pressed() -> void:
 	if not talking:
-		start_typing(random_blips.pick_random())
+		start_typing(food_blips.pick_random())
 
 
 func _on_pet_btn_pressed() -> void:
 	if not talking:
-		start_typing(random_blips.pick_random())
+		start_typing(pet_blips.pick_random())
