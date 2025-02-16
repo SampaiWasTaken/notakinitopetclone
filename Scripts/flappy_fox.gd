@@ -47,7 +47,6 @@ func _input(event):
 
 func start_game():
 	game_running = true
-	#start pipe timer
 	$Timer.start()
 	
 func _process(delta):
@@ -55,9 +54,8 @@ func _process(delta):
 		$FlappyFox.position.x += 3
 	
 func generate_tree():
-	
 	var tree = scenes.pick_random().instantiate()
-	tree.scale = Vector2(0.8, 0.8)
+	tree.scale = Vector2(0.9, 0.9)
 	tree.position.x = $FlappyFox.position.x + PIPE_DELAY
 	tree.position.y = ground_height
 	tree.hit.connect(fox_hit)
@@ -65,8 +63,12 @@ func generate_tree():
 	trees.append(tree)
 	
 func fox_hit():
+	gameOver()
 	print("hit")
 
 func _on_timer_timeout() -> void:
 	$Timer.wait_time = randf_range(0.7, 1.7)
 	generate_tree()
+
+func gameOver():
+	pass
