@@ -16,7 +16,7 @@ func _ready() -> void:
 	#DisplayServer.window_set_current_screen(0)
 	_Camera.anchor_mode = Camera2D.ANCHOR_MODE_FIXED_TOP_LEFT
 	
-	transient = true # Make the window considered as a child of the main window
+	#transient = true # Make the window considered as a child of the main window
 	close_requested.connect(queue_free) # Actually close the window when clicking the close button
 	
 	currentPosi = position
