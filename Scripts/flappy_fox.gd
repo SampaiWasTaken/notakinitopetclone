@@ -1,6 +1,7 @@
 extends Node
 
 @export var treeScene : PackedScene
+@export var treeScene2 : PackedScene
 
 var game_running : bool
 var game_over : bool
@@ -9,28 +10,29 @@ var score
 const SCROLL_SPEED : int = 1
 var screen_size : Vector2i
 var ground_height : int
-var pipes : Array
-const PIPE_DELAY : int = 100
+var trees : Array
+const PIPE_DELAY : int = 600
 const PIPE_RANGE : int = 200
-
+var scenes
 
 func _ready():
+	scenes = [treeScene, treeScene2]
 	screen_size = get_window().size
-	ground_height = 520
+	ground_height = 300
 	new_game()
 
 func new_game():
 	#reset variables
 	game_running = false
 	game_over = false
-	score = 0
-	scroll = 0
+	#score = 0
+	#scroll = 0
 	#$ScoreLabel.text = "SCORE: " + str(score)
 	#$GameOver.hide()
-	get_tree().call_group("pipes", "queue_free")
-	pipes.clear()
-	#generate starting pipes
-	generate_pipes()
+	get_tree().call_group("tree", "queue_free")
+	trees.clear()
+	#generate starting tree
+	generate_tree()
 	$FlappyFox.reset()
 	
 func _input(event):
@@ -40,64 +42,33 @@ func _input(event):
 				if game_running == false:
 					start_game()
 				else:
-					if $FlappyFox.flying:
-						$FlappyFox.flap()
-						check_top()
+					if $FlappyFox.is_on_floor():
+						$FlappyFox.jump()
 
 func start_game():
 	game_running = true
-	$FlappyFox.flying = true
-	$FlappyFox.flap()
-	#start pipe timer
-	$PipeTimer.start()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	$Timer.start()
+	
 func _process(delta):
 	if game_running:
-		$FlappyFox.position.x += SCROLL_SPEED
-		for pipe in pipes:
-			pipe.position.x -= SCROLL_SPEED
-
-
-func _on_pipe_timer_timeout():
-	generate_pipes()
+		$FlappyFox.position.x += 3
 	
-func generate_pipes():
-	var pipe = treeScene.instantiate()
-	pipe.position.x = screen_size.x + PIPE_DELAY
-	pipe.position.y = (screen_size.y - ground_height) / 2  + randi_range(-PIPE_RANGE, PIPE_RANGE)
-	pipe.hit.connect(bird_hit)
-	#pipe.scored.connect(scored)
-	add_child(pipe)
-	pipes.append(pipe)
+func generate_tree():
+	var tree = scenes.pick_random().instantiate()
+	tree.scale = Vector2(0.9, 0.9)
+	tree.position.x = $FlappyFox.position.x + PIPE_DELAY
+	tree.position.y = ground_height
+	tree.hit.connect(fox_hit)
+	add_child(tree)
+	trees.append(tree)
 	
-func scored():
-	score += 1
-	#$ScoreLabel.text = "SCORE: " + str(score)
+func fox_hit():
+	gameOver()
+	print("hit")
 
-func check_top():
-	if $FlappyFox.position.y < 0:
-		$FlappyFox.falling = true
-		stop_game()
+func _on_timer_timeout() -> void:
+	$Timer.wait_time = randf_range(0.7, 1.7)
+	generate_tree()
 
-func stop_game():
-	$PipeTimer.stop()
-	#$GameOver.show()
-	$FlappyFox.flying = false
-	game_running = false
-	game_over = true
-	
-func bird_hit():
-	$FlappyFox.falling = true
-	stop_game()
-
-func _on_ground_hit():
-	$FlappyFox.falling = false
-	stop_game()
-
-func _on_game_over_restart():
-	new_game()
-
-
-func _on_ground_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
+func gameOver():
+	pass

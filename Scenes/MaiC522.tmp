@@ -1,62 +1,11 @@
-[gd_scene load_steps=40 format=3 uid="uid://ckwy6bykoaj66"]
+[gd_scene load_steps=35 format=3 uid="uid://ckwy6bykoaj66"]
 
 [ext_resource type="PackedScene" uid="uid://bh0pejuvdeg81" path="res://Scenes/UI.tscn" id="1_icwyy"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_w7e5r"]
 [ext_resource type="Texture2D" uid="uid://dpb41qs2m8v3d" path="res://Assets/Fox Sprite Sheet 28x20 RED.png" id="2_e21dc"]
 [ext_resource type="Script" path="res://Scripts/window.gd" id="2_f4iug"]
-[ext_resource type="Script" path="res://Scripts/mainFoxWindow.gd" id="2_i528d"]
 [ext_resource type="Texture2D" uid="uid://bikcy4uq23o5u" path="res://icon.svg" id="2_qsy5j"]
-[ext_resource type="PackedScene" uid="uid://b7wtswuue502b" path="res://Scenes/fox_transparent.tscn" id="3_g0wwa"]
 [ext_resource type="Script" path="res://Scenes/mainFox.gd" id="5_da5v2"]
-
-[sub_resource type="Animation" id="Animation_0aep3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Window:currentPosi")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
-
-[sub_resource type="Animation" id="Animation_ubhyh"]
-resource_name = "foxEscape"
-length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:keepFoxInFrame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Node2D/StaticBody2D/Fox:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 4.96667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(181.5, 510.5), Vector2(300, 510.5)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_lv3vx"]
-_data = {
-"RESET": SubResource("Animation_0aep3"),
-"foxEscape": SubResource("Animation_ubhyh")
-}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1s3kp"]
 atlas = ExtResource("2_e21dc")
@@ -282,41 +231,28 @@ animations = [{
 script = ExtResource("1_w7e5r")
 
 [node name="Window" type="Window" parent="."]
-transparent_bg = true
 initial_position = 2
-size = Vector2i(400, 300)
-borderless = true
-always_on_top = true
-transparent = true
-script = ExtResource("2_i528d")
+script = ExtResource("2_f4iug")
 
 [node name="Camera2D" type="Camera2D" parent="Window"]
-
-[node name="FoxTransparent" parent="Window" instance=ExtResource("3_g0wwa")]
-position = Vector2(184.645, 159.89)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Window"]
-root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_lv3vx")
-}
 
 [node name="Window2" type="Window" parent="."]
 auto_translate_mode = 1
 initial_position = 2
 size = Vector2i(1205, 535)
+always_on_top = true
 script = ExtResource("2_f4iug")
 
 [node name="Camera2D" type="Camera2D" parent="Window2"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1828, 1054)
+position = Vector2(1642, 1045)
 scale = Vector2(13.7578, 9.70313)
 sprite_frames = SubResource("SpriteFrames_10sme")
 animation = &"exhausted"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1654, 914)
+position = Vector2(1856, 1219)
 texture = ExtResource("2_qsy5j")
 
 [node name="Window3" type="Window" parent="."]
@@ -325,7 +261,18 @@ size = Vector2i(360, 640)
 unresizable = true
 script = ExtResource("5_da5v2")
 
+[node name="Fox" type="AnimatedSprite2D" parent="Window3"]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(181.5, 510.5)
+scale = Vector2(12.85, 12.85)
+sprite_frames = SubResource("SpriteFrames_10sme")
+animation = &"pet"
+autoplay = "idle"
+frame = 2
+frame_progress = 1.0
+
 [node name="Control" parent="Window3" instance=ExtResource("1_icwyy")]
 
-[connection signal="feedBtnPressed" from="Window3/Control" to="Window" method="_on_control_feed_btn_pressed"]
-[connection signal="petBtnPressed" from="Window3/Control" to="Window/FoxTransparent" method="_on_control_pet_btn_pressed"]
+[connection signal="animation_finished" from="Window3/Fox" to="." method="_on_fox_animation_finished"]
+[connection signal="petBtnPressed" from="Window3/Control" to="Window3" method="_on_control_pet_btn_pressed"]
