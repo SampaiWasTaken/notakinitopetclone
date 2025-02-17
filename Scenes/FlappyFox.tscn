@@ -3,14 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://d0dqj8afkjlb5" path="res://Assets/Parallax/1-Background.png" id="1_i1rbg"]
 [ext_resource type="Script" path="res://Scripts/flappy_fox.gd" id="1_n4ghd"]
 [ext_resource type="Texture2D" uid="uid://dtaughv3akdxu" path="res://Assets/Parallax/2-super far.png" id="2_vuy23"]
-[ext_resource type="PackedScene" path="res://Scenes/ObstacleTree.tscn" id="2_ye56o"]
+[ext_resource type="PackedScene" uid="uid://c6d0gtu5sq54m" path="res://Scenes/ObstacleTree.tscn" id="2_ye56o"]
 [ext_resource type="PackedScene" path="res://Scenes/ObstacleTree2.tscn" id="3_7llvq"]
 [ext_resource type="Texture2D" uid="uid://7ym6b7ffixnm" path="res://Assets/Parallax/3-far.png" id="3_ii1fe"]
 [ext_resource type="Texture2D" uid="uid://mau47agm6der" path="res://Assets/Parallax/4-far light.png" id="4_wvdnt"]
 [ext_resource type="Texture2D" uid="uid://7ryi001os4l6" path="res://Assets/Parallax/5-close.png" id="5_qyi56"]
 [ext_resource type="Texture2D" uid="uid://b3hcr1ukyevhd" path="res://Assets/Parallax/6-close light.png" id="6_4rd3h"]
 [ext_resource type="Texture2D" uid="uid://bi31fbusfo68r" path="res://Assets/Parallax/7-tileset.png" id="7_6y7lr"]
-[ext_resource type="PackedScene" path="res://Scenes/flappy_fox_player.tscn" id="8_ecxg6"]
+[ext_resource type="PackedScene" uid="uid://btu2l4loe4mu5" path="res://Scenes/flappy_fox_player.tscn" id="8_ecxg6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2mjad"]
 size = Vector2(2823.74, 97)

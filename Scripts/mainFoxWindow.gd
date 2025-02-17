@@ -28,8 +28,8 @@ func _physics_process(delta: float) -> void:
 	#_Camera.position = get_camera_pos_from_window()
 	
 	if keepFoxInFrame:
-		currentPosi.x = $"../Window3".position.x
-		currentPosi.y = $"../Window3".position.y + 250
+		currentPosi.x = $"../../Window3".position.x
+		currentPosi.y = $"../../Window3".position.y + 250
 	if !keepFoxInFrame:
 		currentPosi.y = position.y + 100*delta
 	#print($Node2D/StaticBody2D/Fox.position)

@@ -14,7 +14,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Window:currentPosi")
+tracks/0/path = NodePath("Node2D/Window:currentPosi")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -281,7 +281,9 @@ animations = [{
 [node name="Node2D2" type="Node"]
 script = ExtResource("1_w7e5r")
 
-[node name="Window" type="Window" parent="."]
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Window" type="Window" parent="Node2D"]
 transparent_bg = true
 initial_position = 2
 size = Vector2i(400, 300)
@@ -290,13 +292,13 @@ always_on_top = true
 transparent = true
 script = ExtResource("2_i528d")
 
-[node name="Camera2D" type="Camera2D" parent="Window"]
+[node name="Camera2D" type="Camera2D" parent="Node2D/Window"]
 
-[node name="FoxTransparent" parent="Window" instance=ExtResource("3_g0wwa")]
+[node name="FoxTransparent" parent="Node2D/Window" instance=ExtResource("3_g0wwa")]
 position = Vector2(184.645, 159.89)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Window"]
-root_node = NodePath("../..")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/Window"]
+root_node = NodePath("../../..")
 libraries = {
 "": SubResource("AnimationLibrary_lv3vx")
 }
@@ -327,6 +329,6 @@ script = ExtResource("5_da5v2")
 
 [node name="Control" parent="Window3" instance=ExtResource("1_icwyy")]
 
-[connection signal="feedBtnPressed" from="Window3/Control" to="Window" method="_on_control_feed_btn_pressed"]
+[connection signal="feedBtnPressed" from="Window3/Control" to="Node2D/Window" method="_on_control_feed_btn_pressed"]
 [connection signal="gameBtnPressed" from="Window3/Control" to="." method="_on_control_game_btn_pressed"]
-[connection signal="petBtnPressed" from="Window3/Control" to="Window/FoxTransparent" method="_on_control_pet_btn_pressed"]
+[connection signal="petBtnPressed" from="Window3/Control" to="Node2D/Window/FoxTransparent" method="_on_control_pet_btn_pressed"]

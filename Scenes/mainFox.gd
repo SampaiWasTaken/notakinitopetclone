@@ -1,6 +1,6 @@
 extends Window
 
-@onready var _Camera: Camera2D = $Camera2D
+@onready var _Camera: Camera2D = $"../Node2D/Window/Camera2D"
 
 var last_position: = Vector2i.ZERO
 var velocity: = Vector2i.ZERO
