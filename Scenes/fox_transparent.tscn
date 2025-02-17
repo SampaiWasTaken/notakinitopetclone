@@ -230,6 +230,7 @@ size = Vector2(286, 189)
 script = ExtResource("1_42c6y")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(150, 100)
 
 [node name="Fox" type="AnimatedSprite2D" parent="StaticBody2D"]
 texture_filter = 1

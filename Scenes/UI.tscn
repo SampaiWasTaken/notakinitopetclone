@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bh0pejuvdeg81"]
+[gd_scene load_steps=7 format=3 uid="uid://bh0pejuvdeg81"]
 
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_0sxgf"]
 [ext_resource type="Texture2D" uid="uid://cduso63qp2meh" path="res://Assets/Button_Pressed.png" id="1_o8mey"]
 [ext_resource type="Script" path="res://Scenes/chatLabel.gd" id="3_2n6y5"]
+[ext_resource type="PackedScene" uid="uid://b7wtswuue502b" path="res://Scenes/fox_transparent.tscn" id="4_jnyl7"]
 
 [sub_resource type="Image" id="Image_m4tpv"]
 data = {
@@ -114,6 +115,9 @@ script = ExtResource("3_2n6y5")
 [node name="ChatTimer" type="Timer" parent="."]
 wait_time = 25.0
 autostart = true
+
+[node name="FoxTransparent" parent="." instance=ExtResource("4_jnyl7")]
+position = Vector2(0, 300)
 
 [connection signal="pressed" from="BtnContainer/PetBtn" to="." method="_on_pet_btn_pressed"]
 [connection signal="pressed" from="BtnContainer/PetBtn" to="RichTextLabel" method="_on_pet_btn_pressed"]

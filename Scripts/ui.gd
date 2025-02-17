@@ -23,3 +23,6 @@ func _on_feed_btn_pressed() -> void:
 
 func _on_game_btn_pressed() -> void:
 	emit_signal("gameBtnPressed")
+
+func toggleFoxVisibility(x:bool) -> void:
+	$FoxTransparent.visible=x
