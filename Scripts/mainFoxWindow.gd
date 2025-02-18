@@ -24,6 +24,8 @@ func _ready() -> void:
 	
 	currentPosi = position
 	
+	#physics_object_picking = true !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	# needs to be true for area2d to work
 	
 
 func _physics_process(delta: float) -> void:

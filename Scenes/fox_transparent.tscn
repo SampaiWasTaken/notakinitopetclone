@@ -229,19 +229,24 @@ size = Vector2(286, 189)
 [node name="FoxTransparent" type="Node2D"]
 script = ExtResource("1_42c6y")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
 position = Vector2(150, 100)
+collision_layer = 255
+collision_mask = 255
 
-[node name="Fox" type="AnimatedSprite2D" parent="StaticBody2D"]
+[node name="Fox" type="AnimatedSprite2D" parent="Area2D"]
 texture_filter = 1
 texture_repeat = 1
+position = Vector2(23, 24)
 scale = Vector2(12.85, 12.85)
 sprite_frames = SubResource("SpriteFrames_ju2fm")
 animation = &"run"
 autoplay = "idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_8vxa5")
 
-[connection signal="input_event" from="StaticBody2D" to="." method="_on_static_body_2d_input_event"]
-[connection signal="animation_finished" from="StaticBody2D/Fox" to="." method="_on_fox_animation_finished"]
+[connection signal="input_event" from="Area2D" to="." method="_on_static_body_2d_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_static_body_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_static_body_2d_mouse_exited"]
+[connection signal="animation_finished" from="Area2D/Fox" to="." method="_on_fox_animation_finished"]
