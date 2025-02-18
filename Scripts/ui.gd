@@ -26,3 +26,7 @@ func _on_game_btn_pressed() -> void:
 
 func toggleFoxVisibility(x:bool) -> void:
 	$FoxTransparent.visible=x
+
+
+func _on_node_2d_2_game_over_text() -> void:
+	$RichTextLabel._on_pet_death_text()

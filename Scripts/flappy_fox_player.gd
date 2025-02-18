@@ -14,7 +14,7 @@ func reset():
 	rotation = 0
 
 func _physics_process(delta: float) -> void:
-	$AnimatedSprite2D.play("run")
+	#$AnimatedSprite2D.play("run")
 	velocity.y += grav * delta
 	
 	if velocity.y > MAX_VEL:

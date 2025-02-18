@@ -317,6 +317,7 @@ script = ExtResource("5_da5v2")
 
 [node name="Control" parent="Window3" instance=ExtResource("1_icwyy")]
 
+[connection signal="gameOverText" from="." to="Window3/Control" method="_on_node_2d_2_game_over_text"]
 [connection signal="feedBtnPressed" from="Window3/Control" to="Node2D/Window" method="_on_control_feed_btn_pressed"]
 [connection signal="gameBtnPressed" from="Window3/Control" to="." method="_on_control_game_btn_pressed"]
 [connection signal="petBtnPressed" from="Window3/Control" to="Node2D/Window/FoxTransparent" method="_on_control_pet_btn_pressed"]

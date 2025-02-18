@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/flappy_fox.gd" id="1_n4ghd"]
 [ext_resource type="Texture2D" uid="uid://dtaughv3akdxu" path="res://Assets/Parallax/2-super far.png" id="2_vuy23"]
 [ext_resource type="PackedScene" uid="uid://c6d0gtu5sq54m" path="res://Scenes/ObstacleTree.tscn" id="2_ye56o"]
-[ext_resource type="PackedScene" path="res://Scenes/ObstacleTree2.tscn" id="3_7llvq"]
+[ext_resource type="PackedScene" uid="uid://brdknytupub3f" path="res://Scenes/ObstacleTree2.tscn" id="3_7llvq"]
 [ext_resource type="Texture2D" uid="uid://7ym6b7ffixnm" path="res://Assets/Parallax/3-far.png" id="3_ii1fe"]
 [ext_resource type="Texture2D" uid="uid://mau47agm6der" path="res://Assets/Parallax/4-far light.png" id="4_wvdnt"]
 [ext_resource type="Texture2D" uid="uid://7ryi001os4l6" path="res://Assets/Parallax/5-close.png" id="5_qyi56"]
@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://btu2l4loe4mu5" path="res://Scenes/flappy_fox_player.tscn" id="8_ecxg6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2mjad"]
-size = Vector2(2823.74, 97)
+size = Vector2(2823.74, 65.25)
 
 [node name="Node2D" type="Node"]
 script = ExtResource("1_n4ghd")
@@ -22,10 +22,9 @@ treeScene2 = ExtResource("3_7llvq")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 1.5
-autostart = true
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
-scale = Vector2(4, 4)
+scale = Vector2(6, 6)
 scroll_scale = Vector2(0.1, 1)
 repeat_size = Vector2(314, 0)
 
@@ -34,7 +33,7 @@ texture = ExtResource("1_i1rbg")
 centered = false
 
 [node name="Parallax2D2" type="Parallax2D" parent="."]
-scale = Vector2(4, 4)
+scale = Vector2(6, 6)
 scroll_scale = Vector2(0.2, 1)
 repeat_size = Vector2(314, 0)
 
@@ -43,7 +42,7 @@ texture = ExtResource("2_vuy23")
 centered = false
 
 [node name="Parallax2D3" type="Parallax2D" parent="."]
-scale = Vector2(4, 4)
+scale = Vector2(6, 6)
 scroll_scale = Vector2(0.3, 1)
 repeat_size = Vector2(314, 0)
 
@@ -52,7 +51,7 @@ texture = ExtResource("3_ii1fe")
 centered = false
 
 [node name="Parallax2D4" type="Parallax2D" parent="."]
-scale = Vector2(4, 4)
+scale = Vector2(6, 6)
 scroll_scale = Vector2(0.4, 1)
 repeat_size = Vector2(314, 0)
 
@@ -61,7 +60,7 @@ texture = ExtResource("4_wvdnt")
 centered = false
 
 [node name="Parallax2D5" type="Parallax2D" parent="."]
-scale = Vector2(4, 4)
+scale = Vector2(6, 6)
 scroll_scale = Vector2(0.5, 1)
 repeat_size = Vector2(314, 0)
 
@@ -70,7 +69,7 @@ texture = ExtResource("5_qyi56")
 centered = false
 
 [node name="Parallax2D6" type="Parallax2D" parent="."]
-scale = Vector2(4, 4)
+scale = Vector2(6, 6)
 scroll_scale = Vector2(0.7, 1)
 repeat_size = Vector2(314, 0)
 
@@ -79,7 +78,7 @@ texture = ExtResource("6_4rd3h")
 centered = false
 
 [node name="Parallax2D7" type="Parallax2D" parent="."]
-scale = Vector2(4, 4)
+scale = Vector2(6, 6)
 repeat_size = Vector2(314, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D7"]
@@ -95,11 +94,11 @@ scale = Vector2(0.25, 0.25)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Parallax2D8/StaticBody2D"]
-position = Vector2(1100.13, 347)
+position = Vector2(1096, 477.375)
 shape = SubResource("RectangleShape2D_2mjad")
 
 [node name="FlappyFox" parent="." instance=ExtResource("8_ecxg6")]
-position = Vector2(40, 254)
+position = Vector2(129, 408)
 scale = Vector2(0.5, 0.5)
 
 [node name="Camera2D2" type="Camera2D" parent="FlappyFox"]
