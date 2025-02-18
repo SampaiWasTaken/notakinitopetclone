@@ -10,6 +10,7 @@ var velocity: = Vector2i.ZERO
 @export var currentPosi:Vector2
 
 var dragging = false
+var dragging_offset = Vector2.ZERO
 
 
 
@@ -39,6 +40,10 @@ func _physics_process(delta: float) -> void:
 	if keepFoxInFrame:
 		position.x = $"../../Window3".position.x
 		position.y = $"../../Window3".position.y + 300
+	
+	if dragging:
+		var mouse_pos = DisplayServer.mouse_get_position()
+		position = mouse_pos - dragging_offset  # Update window position
 
 func get_camera_pos_from_window()->Vector2i:
 	return position + velocity
@@ -71,5 +76,9 @@ func _on_node_2d_2_mad_fox() -> void:
 
 
 func _on_fox_transparent_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	print(event)
-	pass # Replace with function body.
+	if event is InputEventMouseButton:
+		if event.pressed:
+			dragging = true
+			dragging_offset = DisplayServer.mouse_get_position() - position
+		else:
+			dragging = false
