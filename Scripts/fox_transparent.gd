@@ -64,7 +64,7 @@ func _on_game_btn_pressed() -> void:
 	pass # Replace with function body.
 
 func feedFox():
-	$StaticBody2D/Fox.play("food")
+	$Fox.play("food")
 	#emit_signal("feedBtnPressed")
 	var food = preload("res://food.tscn").instantiate()
 	food.randomize_food()

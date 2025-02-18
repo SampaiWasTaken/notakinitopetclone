@@ -3,6 +3,7 @@ signal petBtnPressed
 signal feedBtnPressed
 signal gameBtnPressed
 
+var madFox = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -30,4 +31,11 @@ func toggleFoxVisibility(x:bool) -> void:
 
 
 func _on_node_2d_2_game_over_text() -> void:
-	$RichTextLabel._on_pet_death_text()
+	if not madFox:
+		$RichTextLabel._on_pet_death_text()
+
+
+func _on_node_2d_2_mad_fox() -> void:
+	madFox = true
+	$RichTextLabel.mad_fox()
+	pass # Replace with function body.

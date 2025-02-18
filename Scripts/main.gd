@@ -18,8 +18,7 @@ func _ready():
 func _on_control_game_btn_pressed() -> void:
 	if not gameRunning:
 		
-		$Node2D/Window.always_on_top = false
-		
+		#$Node2D/Window.always_on_top = false
 		var new_window = Window.new()
 		new_window.title = "New Window"
 		new_window.size = Vector2i(640, 360)  
@@ -44,7 +43,9 @@ func _on_control_game_btn_pressed() -> void:
 		
 	
 	pass # Replace with function body.
+	
 func _on_fox_dead(window: Window) -> void:
+	#$Node2D/Window.always_on_top = true
 	gameRunning = false
 	deathCount += 1
 	await get_tree().create_timer(2).timeout
@@ -54,6 +55,5 @@ func _on_fox_dead(window: Window) -> void:
 	window.queue_free()
 	emit_signal("gameOverText")
 	
-	$Node2D/Window.always_on_top = true
 	
 	

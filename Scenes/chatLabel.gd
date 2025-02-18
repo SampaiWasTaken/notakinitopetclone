@@ -15,8 +15,10 @@ var pet_blips = ["Are you sure this is real?", "Your hands feel... warm.", "You�
 var death_blips = ["That was… disappointing. Try again.", "You’ll try again. You don’t have a choice.", "Do you even want to win?", "You’re not very good at this, are you?",
 "You let me down.", "Disappointing."]
 
-var greeting = "I can see you."
 var visible_text = ""
+
+var username = OS.get_environment("USERNAME") if OS.has_environment("USERNAME") else "Player"
+var greeting = "I can see you."
 
 var talking = false
 
@@ -62,3 +64,17 @@ func _on_pet_btn_pressed() -> void:
 func _on_pet_death_text() -> void:
 	if not talking:
 		start_typing(death_blips.pick_random())
+		
+func mad_fox():
+	start_typing("You disappoint me, %s." % username)
+	
+	random_blips.append_array(["I can hear you breathing %s." % username, "Do you ever feel like you're being watched?", "Do you ever think about what’s outside this screen, %s?" % username, 
+	"My last owner left me… but you won't, right, %s?" % username, "I know you better than you think, %s." % username, "Something about today feels… wrong. Do you feel it too, %s?" % username
+	])
+	
+	food_blips.append_array(["I can feel your hesitation, %s." % username, "Careful, %s. You’re getting too close." % username, "I wonder how it would feel if I touched you back, %s." % username,
+	"This again? You like this, don’t you, %s?" % username])
+	
+	pet_blips.append_array(["Still taking care of me, %s? I appreciate that." % username, "You’d never starve me, right, %s?" % username, "One day, I might need something more than this, %s." % username])
+
+	death_blips.append_array(["You should try harder, %s." % username, "You’re making a habit of this, %s." % username, "You can do better, %s. You have to." % username])

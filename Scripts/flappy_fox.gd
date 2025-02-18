@@ -48,7 +48,7 @@ func start_game():
 	
 func _process(delta):
 	if game_running:
-		$FlappyFox.position.x += 3
+		$FlappyFox.position.x += 300 * delta
 	
 func generate_tree():
 	var tree = scenes.pick_random().instantiate()

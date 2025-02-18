@@ -39,11 +39,6 @@ func _physics_process(delta: float) -> void:
 	if keepFoxInFrame:
 		position.x = $"../../Window3".position.x
 		position.y = $"../../Window3".position.y + 300
-	
-	#print($Node2D/StaticBody2D/Fox.position)
-	#position = $"..".position
-	
-	
 
 func get_camera_pos_from_window()->Vector2i:
 	return position + velocity
@@ -53,12 +48,12 @@ func set_pos():
 	jump_window(Vector2i(400, 0), 0.5)
 
 func jump_window(offset: Vector2i, duration: float):
+	$FoxTransparent.visible = true
 	var tween = get_tree().create_tween()
 	var start_pos = position
 	var peak_pos = start_pos + offset / 2 + Vector2i(0, -100)  # Midway up
 	var end_pos = start_pos + offset  # Final landing position
 	$"../../Window3/Control".toggleFoxVisibility(false)
-	$FoxTransparent.visible = true
 	$FoxTransparent.runFox()
 	# Move up and forward
 	tween.tween_property($".", "position", peak_pos, duration / 2).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)

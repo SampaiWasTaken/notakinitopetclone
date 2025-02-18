@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://ckwy6bykoaj66"]
+[gd_scene load_steps=37 format=3 uid="uid://ckwy6bykoaj66"]
 
 [ext_resource type="PackedScene" uid="uid://bh0pejuvdeg81" path="res://Scenes/UI.tscn" id="1_icwyy"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_w7e5r"]
@@ -8,43 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://bikcy4uq23o5u" path="res://icon.svg" id="2_qsy5j"]
 [ext_resource type="PackedScene" uid="uid://b7wtswuue502b" path="res://Scenes/fox_transparent.tscn" id="3_g0wwa"]
 [ext_resource type="Script" path="res://Scenes/mainFox.gd" id="5_da5v2"]
-
-[sub_resource type="Animation" id="Animation_0aep3"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_ubhyh"]
-resource_name = "foxEscape"
-length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:keepFoxInFrame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Node2D/StaticBody2D/Fox:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 4.96667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(181.5, 510.5), Vector2(300, 510.5)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_lv3vx"]
-_data = {
-"RESET": SubResource("Animation_0aep3"),
-"foxEscape": SubResource("Animation_ubhyh")
-}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1s3kp"]
 atlas = ExtResource("2_e21dc")
@@ -273,21 +236,17 @@ script = ExtResource("1_w7e5r")
 
 [node name="Window" type="Window" parent="Node2D"]
 transparent_bg = true
+handle_input_locally = false
 physics_object_picking = true
 initial_position = 2
 size = Vector2i(400, 300)
 exclusive = true
+borderless = true
 always_on_top = true
 transparent = true
 script = ExtResource("2_i528d")
 
 [node name="Camera2D" type="Camera2D" parent="Node2D/Window"]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/Window"]
-root_node = NodePath("../../..")
-libraries = {
-"": SubResource("AnimationLibrary_lv3vx")
-}
 
 [node name="FoxTransparent" parent="Node2D/Window" instance=ExtResource("3_g0wwa")]
 
@@ -319,6 +278,7 @@ script = ExtResource("5_da5v2")
 
 [connection signal="gameOverText" from="." to="Window3/Control" method="_on_node_2d_2_game_over_text"]
 [connection signal="madFox" from="." to="Node2D/Window" method="_on_node_2d_2_mad_fox"]
+[connection signal="madFox" from="." to="Window3/Control" method="_on_node_2d_2_mad_fox"]
 [connection signal="feedBtnPressed" from="Window3/Control" to="Node2D/Window" method="_on_control_feed_btn_pressed"]
 [connection signal="feedBtnPressed" from="Window3/Control" to="Node2D/Window/FoxTransparent" method="_on_control_feed_btn_pressed"]
 [connection signal="gameBtnPressed" from="Window3/Control" to="." method="_on_control_game_btn_pressed"]
