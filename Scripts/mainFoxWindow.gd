@@ -63,9 +63,8 @@ func jump_window(offset: Vector2i, duration: float):
 	await tween.finished
 	
 	$FoxTransparent.petFox()
-	
-	
-	
-func _on_control_feed_btn_pressed() -> void:
+
+
+func _on_node_2d_2_mad_fox() -> void:
 	set_pos()
 	pass # Replace with function body.

@@ -6,6 +6,9 @@ extends Node
 
 var gameRunning = false
 signal gameOverText
+var deathCount = 0
+signal madFox
+var foxmad = false
 
 func _ready():
 	#_SubWindow.world_2d = _MainWindow.world_2d
@@ -40,7 +43,11 @@ func _on_control_game_btn_pressed() -> void:
 	pass # Replace with function body.
 func _on_fox_dead(window: Window) -> void:
 	gameRunning = false
-	await get_tree().create_timer(1.6).timeout
+	deathCount += 1
+	await get_tree().create_timer(2).timeout
+	if deathCount >= 1 and not foxmad:
+		emit_signal("madFox")
+		foxmad = true
 	window.queue_free()
 	emit_signal("gameOverText")
 	

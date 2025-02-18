@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bh0pejuvdeg81" path="res://Scenes/UI.tscn" id="1_icwyy"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_w7e5r"]
-[ext_resource type="Texture2D" uid="uid://dpb41qs2m8v3d" path="res://Assets/Fox Sprite Sheet 28x20 RED.png" id="2_e21dc"]
+[ext_resource type="Texture2D" uid="uid://dpb41qs2m8v3d" path="res://Assets/Food/Fox Sprite Sheet 28x20 RED.png" id="2_e21dc"]
 [ext_resource type="Script" path="res://Scripts/window.gd" id="2_f4iug"]
 [ext_resource type="Script" path="res://Scripts/mainFoxWindow.gd" id="2_i528d"]
 [ext_resource type="Texture2D" uid="uid://bikcy4uq23o5u" path="res://icon.svg" id="2_qsy5j"]
@@ -273,7 +273,6 @@ script = ExtResource("1_w7e5r")
 
 [node name="Window" type="Window" parent="Node2D"]
 transparent_bg = true
-handle_input_locally = false
 initial_position = 2
 size = Vector2i(400, 300)
 borderless = true
@@ -318,6 +317,9 @@ script = ExtResource("5_da5v2")
 [node name="Control" parent="Window3" instance=ExtResource("1_icwyy")]
 
 [connection signal="gameOverText" from="." to="Window3/Control" method="_on_node_2d_2_game_over_text"]
+[connection signal="madFox" from="." to="Node2D/Window" method="_on_node_2d_2_mad_fox"]
 [connection signal="feedBtnPressed" from="Window3/Control" to="Node2D/Window" method="_on_control_feed_btn_pressed"]
+[connection signal="feedBtnPressed" from="Window3/Control" to="Node2D/Window/FoxTransparent" method="_on_control_feed_btn_pressed"]
 [connection signal="gameBtnPressed" from="Window3/Control" to="." method="_on_control_game_btn_pressed"]
+[connection signal="gameBtnPressed" from="Window3/Control" to="Node2D/Window/FoxTransparent" method="_on_control_game_btn_pressed"]
 [connection signal="petBtnPressed" from="Window3/Control" to="Node2D/Window/FoxTransparent" method="_on_control_pet_btn_pressed"]

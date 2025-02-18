@@ -1,0 +1,50 @@
+[gd_scene load_steps=11 format=3 uid="uid://ckxpv2uu3cxy"]
+
+[ext_resource type="Script" path="res://food.gd" id="1_me32u"]
+[ext_resource type="Texture2D" uid="uid://b7t04ssviqvsb" path="res://Assets/Food/Chicken.png" id="1_x6824"]
+[ext_resource type="Texture2D" uid="uid://dsfch6hbq33jw" path="res://Assets/Food/ChickenLeg.png" id="2_runiu"]
+[ext_resource type="Texture2D" uid="uid://c1myjysyi36g6" path="res://Assets/Food/Cookie.png" id="3_rwtci"]
+[ext_resource type="Texture2D" uid="uid://c40k8vkq5f4gy" path="res://Assets/Food/Fish.png" id="4_fskqv"]
+[ext_resource type="Texture2D" uid="uid://b38djxnyt238e" path="res://Assets/Food/FishFillet.png" id="5_quclb"]
+[ext_resource type="Texture2D" uid="uid://db20ylfacq04j" path="res://Assets/Food/FishSteak.png" id="6_42u4s"]
+[ext_resource type="Texture2D" uid="uid://dslu2wwr3bmgr" path="res://Assets/Food/Ribs.png" id="7_u5l38"]
+[ext_resource type="Texture2D" uid="uid://u5oirpv6xkyi" path="res://Assets/Food/Sausages.png" id="8_r0k2e"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cdobb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_x6824")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_runiu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rwtci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fskqv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_quclb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_42u4s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_u5l38")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_r0k2e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Area2D" type="Node2D"]
+script = ExtResource("1_me32u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_cdobb")
