@@ -13,6 +13,9 @@ var food_blips = ["Are you feeding me... or keeping me here?", "This doesn’t t
 var pet_blips = ["Are you sure this is real?", "Your hands feel... warm.", "You’re different from the others.", "You’re leaving something behind. Can’t you feel it?",
 "I don’t know if I like this. But I don’t want you to stop.", "Your hand feels different this time.", "I think you’re making a mistake."]
 
+var death_blips = ["That was… disappointing. Try again.", "You’ll try again. You don’t have a choice.", "Do you even want to win?", "You’re not very good at this, are you?",
+"You let me down.", "Disappointing."]
+
 var greeting = "I can see you."
 var visible_text = ""
 
@@ -55,3 +58,7 @@ func _on_feed_btn_pressed() -> void:
 func _on_pet_btn_pressed() -> void:
 	if not talking:
 		start_typing(pet_blips.pick_random())
+
+func _on_pet_death_text() -> void:
+	if not talking:
+		start_typing(death_blips.pick_random())

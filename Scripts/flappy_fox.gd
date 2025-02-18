@@ -15,23 +15,19 @@ const PIPE_DELAY : int = 600
 const PIPE_RANGE : int = 200
 var scenes
 
+signal foxDead
+
 func _ready():
 	scenes = [treeScene, treeScene2]
 	screen_size = get_window().size
-	ground_height = 300
+	ground_height = 445
 	new_game()
 
 func new_game():
-	#reset variables
 	game_running = false
 	game_over = false
-	#score = 0
-	#scroll = 0
-	#$ScoreLabel.text = "SCORE: " + str(score)
-	#$GameOver.hide()
 	get_tree().call_group("tree", "queue_free")
 	trees.clear()
-	#generate starting tree
 	generate_tree()
 	$FlappyFox.reset()
 	
@@ -46,6 +42,7 @@ func _input(event):
 						$FlappyFox.jump()
 
 func start_game():
+	$"FlappyFox/AnimatedSprite2D".play("run")
 	game_running = true
 	$Timer.start()
 	
@@ -63,12 +60,12 @@ func generate_tree():
 	trees.append(tree)
 	
 func fox_hit():
-	gameOver()
-	print("hit")
+	if not game_over:
+		emit_signal("foxDead")
+	game_running = false
+	game_over = true
+	$"FlappyFox/AnimatedSprite2D".play("rip")
 
 func _on_timer_timeout() -> void:
 	$Timer.wait_time = randf_range(0.7, 1.7)
 	generate_tree()
-
-func gameOver():
-	pass

@@ -229,8 +229,10 @@ size = Vector2(286, 189)
 [node name="FoxTransparent" type="Node2D"]
 script = ExtResource("1_42c6y")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="Area2D" parent="."]
 position = Vector2(150, 100)
+collision_layer = 255
+collision_mask = 255
 
 [node name="Fox" type="AnimatedSprite2D" parent="StaticBody2D"]
 texture_filter = 1
