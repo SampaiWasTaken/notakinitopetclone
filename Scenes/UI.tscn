@@ -121,7 +121,10 @@ position = Vector2(0, 300)
 
 [connection signal="pressed" from="BtnContainer/PetBtn" to="." method="_on_pet_btn_pressed"]
 [connection signal="pressed" from="BtnContainer/PetBtn" to="RichTextLabel" method="_on_pet_btn_pressed"]
+[connection signal="pressed" from="BtnContainer/PetBtn" to="FoxTransparent" method="_on_pet_btn_pressed"]
 [connection signal="pressed" from="BtnContainer/FeedBtn" to="." method="_on_feed_btn_pressed"]
 [connection signal="pressed" from="BtnContainer/FeedBtn" to="RichTextLabel" method="_on_feed_btn_pressed"]
+[connection signal="pressed" from="BtnContainer/FeedBtn" to="FoxTransparent" method="_on_feed_btn_pressed"]
 [connection signal="pressed" from="BtnContainer/GameBtn" to="." method="_on_game_btn_pressed"]
+[connection signal="pressed" from="BtnContainer/GameBtn" to="FoxTransparent" method="_on_game_btn_pressed"]
 [connection signal="timeout" from="ChatTimer" to="RichTextLabel" method="_on_chat_timer_timeout"]

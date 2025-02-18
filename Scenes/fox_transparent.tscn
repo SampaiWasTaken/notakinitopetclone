@@ -1,7 +1,7 @@
-[gd_scene load_steps=32 format=3 uid="uid://b7wtswuue502b"]
+[gd_scene load_steps=40 format=3 uid="uid://b7wtswuue502b"]
 
 [ext_resource type="Script" path="res://Scripts/fox_transparent.gd" id="1_42c6y"]
-[ext_resource type="Texture2D" uid="uid://dpb41qs2m8v3d" path="res://Assets/Fox Sprite Sheet 28x20 RED.png" id="1_fh6lg"]
+[ext_resource type="Texture2D" uid="uid://dpb41qs2m8v3d" path="res://Assets/Food/Fox Sprite Sheet 28x20 RED.png" id="1_fh6lg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1s3kp"]
 atlas = ExtResource("1_fh6lg")
@@ -24,6 +24,38 @@ atlas = ExtResource("1_fh6lg")
 region = Rect2(112, 40, 28, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q8av4"]
+atlas = ExtResource("1_fh6lg")
+region = Rect2(140, 40, 28, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6uiyx"]
+atlas = ExtResource("1_fh6lg")
+region = Rect2(0, 20, 28, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d14kw"]
+atlas = ExtResource("1_fh6lg")
+region = Rect2(28, 20, 28, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ar60x"]
+atlas = ExtResource("1_fh6lg")
+region = Rect2(0, 40, 28, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2csi"]
+atlas = ExtResource("1_fh6lg")
+region = Rect2(28, 40, 28, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o22o0"]
+atlas = ExtResource("1_fh6lg")
+region = Rect2(56, 40, 28, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmpfg"]
+atlas = ExtResource("1_fh6lg")
+region = Rect2(84, 40, 28, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3c45q"]
+atlas = ExtResource("1_fh6lg")
+region = Rect2(112, 40, 28, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkyov"]
 atlas = ExtResource("1_fh6lg")
 region = Rect2(140, 40, 28, 20)
 
@@ -138,6 +170,41 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_6uiyx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d14kw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ar60x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2csi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o22o0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmpfg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3c45q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkyov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d14kw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6uiyx")
+}],
+"loop": false,
+"name": &"food",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ibnvc")
 }, {
 "duration": 1.0,
@@ -235,11 +302,20 @@ texture_repeat = 1
 position = Vector2(173, 124)
 scale = Vector2(12.85, 12.85)
 sprite_frames = SubResource("SpriteFrames_ju2fm")
-animation = &"run"
+animation = &"food"
 autoplay = "idle"
+frame = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(150, 100)
 shape = SubResource("RectangleShape2D_8vxa5")
 
-[connection signal="animation_finished" from="Fox" to="." method="_on_fox_animation_finished"]
+[node name="FoodMarker" type="Marker2D" parent="."]
+position = Vector2(280, 222)
+
+[connection signal="input_event" from="StaticBody2D" to="." method="_on_static_body_2d_input_event"]
+[connection signal="animation_finished" from="StaticBody2D/Fox" to="." method="_on_fox_animation_finished"]
+[connection signal="input_event" from="Area2D" to="." method="_on_static_body_2d_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_static_body_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_static_body_2d_mouse_exited"]
+[connection signal="animation_finished" from="Area2D/Fox" to="." method="_on_fox_animation_finished"]
