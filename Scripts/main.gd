@@ -32,6 +32,7 @@ func _on_control_game_btn_pressed() -> void:
 		new_window.set("unresizable", 1)
 		new_window.set("initial_position",1)
 		new_window.set("borderless",1)
+		new_window.always_on_top = true
 		# Show the window
 		var game = preload("res://Scenes/FlappyFox.tscn")
 		var gameScene = game.instantiate()
