@@ -11,13 +11,13 @@ func _process(delta: float) -> void:
 	pass
 
 func petFox() -> void:
-	$StaticBody2D/Fox.play("pet")
+	$Area2D/Fox.play("pet")
 
 func runFox() -> void:
-	$StaticBody2D/Fox.play("run")
+	$Area2D/Fox.play("run")
 
 func _on_fox_animation_finished() -> void:
-	$StaticBody2D/Fox.play("idle")
+	$Area2D/Fox.play("idle")
 
 
 func _on_control_pet_btn_pressed() -> void:
@@ -31,8 +31,17 @@ func _on_control_feed_btn_pressed() -> void:
 
 
 func _on_static_body_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	print("WTF")
-	print(InputEvent)
+	print("WWWWWWWWWWWWWWWWWWWWWWWWW")
+	pass # Replace with function body.
+
+
+func _on_static_body_2d_mouse_entered() -> void:
+	print("HUH ENTERED")
+	pass # Replace with function body.
+
+
+func _on_static_body_2d_mouse_exited() -> void:
+	print("HUH EXITED")
 	pass # Replace with function body.
 
 
