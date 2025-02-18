@@ -9,6 +9,8 @@ var velocity: = Vector2i.ZERO
 @export var keepFoxInFrame = true
 @export var currentPosi:Vector2
 
+var dragging = false
+
 
 
 func _ready() -> void:
@@ -70,4 +72,10 @@ func jump_window(offset: Vector2i, duration: float):
 	
 func _on_control_feed_btn_pressed() -> void:
 	set_pos()
+	pass # Replace with function body.
+
+
+
+func _on_fox_transparent_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	print(event)
 	pass # Replace with function body.
