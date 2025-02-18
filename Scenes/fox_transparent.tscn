@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://b7wtswuue502b"]
+[gd_scene load_steps=41 format=3 uid="uid://b7wtswuue502b"]
 
 [ext_resource type="Script" path="res://Scripts/fox_transparent.gd" id="1_42c6y"]
 [ext_resource type="Texture2D" uid="uid://dpb41qs2m8v3d" path="res://Assets/Food/Fox Sprite Sheet 28x20 RED.png" id="1_fh6lg"]
@@ -293,6 +293,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vxa5"]
 size = Vector2(242, 189)
 
+[sub_resource type="Curve" id="Curve_2y2h3"]
+_data = [Vector2(0, 1), 0.0, 0.138811, 0, 0, Vector2(1, 0), -0.55492, 0.0, 0, 0]
+point_count = 2
+
 [node name="FoxTransparent" type="Area2D"]
 script = ExtResource("1_42c6y")
 
@@ -311,5 +315,20 @@ shape = SubResource("RectangleShape2D_8vxa5")
 
 [node name="FoodMarker" type="Marker2D" parent="."]
 position = Vector2(280, 222)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(279, 222)
+emitting = false
+amount = 30
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 41.91
+initial_velocity_max = 211.95
+scale_amount_min = 14.15
+scale_amount_max = 44.44
+scale_amount_curve = SubResource("Curve_2y2h3")
 
 [connection signal="animation_finished" from="Fox" to="." method="_on_fox_animation_finished"]

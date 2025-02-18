@@ -2,8 +2,6 @@ extends Window
 
 @onready var _Camera: Camera2D = $Camera2D
 
-
-
 var last_position: = Vector2i.ZERO
 var velocity: = Vector2i.ZERO
 @export var keepFoxInFrame = true
@@ -11,7 +9,6 @@ var velocity: = Vector2i.ZERO
 
 var dragging = false
 var dragging_offset = Vector2.ZERO
-
 
 
 func _ready() -> void:
@@ -67,13 +64,10 @@ func jump_window(offset: Vector2i, duration: float):
 	await tween.finished
 	
 	$FoxTransparent.petFox()
-
-
+	
 func _on_node_2d_2_mad_fox() -> void:
 	set_pos()
 	pass # Replace with function body.
-
-
 
 func _on_fox_transparent_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton:
