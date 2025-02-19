@@ -122,6 +122,7 @@ collision_mask = 2
 script = ExtResource("1_ppbi5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 scale = Vector2(7, 7)
 sprite_frames = SubResource("SpriteFrames_8yat1")
 animation = &"run"

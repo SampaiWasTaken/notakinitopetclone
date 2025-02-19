@@ -16,15 +16,19 @@ func _process(delta: float) -> void:
 
 func _on_pet_btn_pressed() -> void:
 	emit_signal("petBtnPressed")
+	playBtnClick()
 
 
 func _on_feed_btn_pressed() -> void:
 	emit_signal("feedBtnPressed")
+	playBtnClick()
+	$FoodSound.play()
 	pass
 
 
 func _on_game_btn_pressed() -> void:
 	emit_signal("gameBtnPressed")
+	playBtnClick()
 
 func toggleFoxVisibility(x:bool) -> void:
 	$FoxTransparent.visible=x
@@ -45,9 +49,14 @@ func _on_back_btn_pressed() -> void:
 	$BtnContainer.visible = true
 	$VBoxContainer.visible = false
 	$BtnContainer2.visible = false
+	playBtnClick()
 
 
 func _on_stat_btn_2_pressed() -> void:
 	$BtnContainer.visible = false
 	$VBoxContainer.visible = true
 	$BtnContainer2.visible = true
+	playBtnClick()
+	
+func playBtnClick():
+	$BtnClick.play()
