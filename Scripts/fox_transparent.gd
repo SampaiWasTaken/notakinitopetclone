@@ -3,6 +3,13 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	var control = $"../../../Window3".get_child(0)
+	
+	control.connect("petBtnPressed", _on_control_pet_btn_pressed)
+	control.connect("feedBtnPressed", _on_control_feed_btn_pressed)
+	#petBtnPressed
+	 #feedBtnPressed
+	 #gameBtnPressed
 	pass # Replace with function body.
 
 
@@ -46,20 +53,16 @@ func _on_static_body_2d_mouse_exited() -> void:
 	print("HUH EXITED")
 	pass # Replace with function body.
 
-
 func _on_control_game_btn_pressed() -> void:
 	pass # Replace with function body.
-
 
 func _on_pet_btn_pressed() -> void:
 	petFox()
 	pass # Replace with function body.
 
-
 func _on_feed_btn_pressed() -> void:
 	feedFox()
 	pass # Replace with function body.
-
 
 func _on_game_btn_pressed() -> void:
 	

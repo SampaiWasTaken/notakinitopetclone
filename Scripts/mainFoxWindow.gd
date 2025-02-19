@@ -9,7 +9,7 @@ var velocity: = Vector2i.ZERO
 
 var dragging = false
 var dragging_offset = Vector2.ZERO
-
+signal oof
 
 func _ready() -> void:
 	$FoxTransparent.visible = false
@@ -35,8 +35,8 @@ func _physics_process(delta: float) -> void:
 	#_Camera.position = get_camera_pos_from_window()
 	
 	if keepFoxInFrame:
-		position.x = $"../../Window3".position.x
-		position.y = $"../../Window3".position.y + 300
+		position.x = Globals.uiWindowPos.x
+		position.y = Globals.uiWindowPos.y + 300
 	
 	if dragging:
 		var mouse_pos = DisplayServer.mouse_get_position()
@@ -76,3 +76,8 @@ func _on_fox_transparent_input_event(viewport: Node, event: InputEvent, shape_id
 			dragging_offset = DisplayServer.mouse_get_position() - position
 		else:
 			dragging = false
+			
+func _notification(what):
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		emit_signal("oof")
+		
