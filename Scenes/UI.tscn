@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bh0pejuvdeg81"]
+[gd_scene load_steps=9 format=3 uid="uid://bh0pejuvdeg81"]
 
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_0sxgf"]
 [ext_resource type="Texture2D" uid="uid://cduso63qp2meh" path="res://Assets/Sprites/Button_Pressed.png" id="1_o8mey"]
@@ -15,7 +15,13 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_14qlc"]
-image = SubResource("Image_7v7ho")
+image = SubResource("Image_pj1mv")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fwtvr"]
+bg_color = Color(0.278431, 0.278431, 0.278431, 0.658824)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n8dsm"]
+bg_color = Color(0.792157, 0, 0.117647, 0.705882)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -36,13 +42,10 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.513726)
 
 [node name="BtnContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.141
-offset_right = -1.0
-offset_bottom = -0.240005
-grow_horizontal = 2
+layout_mode = 0
+offset_right = 384.0
+offset_bottom = 90.0
+scale = Vector2(0.937, 0.937)
 
 [node name="PetBtn" type="TextureButton" parent="BtnContainer"]
 layout_mode = 2
@@ -77,6 +80,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Feed"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatBtn2" type="TextureButton" parent="BtnContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = SubResource("ImageTexture_14qlc")
+texture_pressed = ExtResource("1_o8mey")
+stretch_mode = 0
+
+[node name="StatBtnLabel" type="Label" parent="BtnContainer/StatBtn2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Stats"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -119,12 +140,95 @@ autostart = true
 [node name="FoxTransparent" parent="." instance=ExtResource("4_jnyl7")]
 position = Vector2(0, 300)
 
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
+offset_left = 97.715
+offset_top = 10.07
+offset_right = 349.835
+offset_bottom = 107.13
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "❤️"
+
+[node name="ProgressBar3" type="ProgressBar" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_fwtvr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_n8dsm")
+value = 50.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "🎲"
+
+[node name="ProgressBar3" type="ProgressBar" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_fwtvr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_n8dsm")
+value = 50.0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "🍴"
+
+[node name="ProgressBar3" type="ProgressBar" parent="VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_fwtvr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_n8dsm")
+value = 50.0
+
+[node name="BtnContainer2" type="HBoxContainer" parent="."]
+visible = false
+layout_direction = 2
+layout_mode = 0
+offset_right = 93.0
+offset_bottom = 90.0
+scale = Vector2(0.937, 0.937)
+
+[node name="BackBtn" type="TextureButton" parent="BtnContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = SubResource("ImageTexture_14qlc")
+texture_pressed = ExtResource("1_o8mey")
+stretch_mode = 0
+
+[node name="BackBtnLabel" type="Label" parent="BtnContainer2/BackBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "BACK"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="BtnContainer/PetBtn" to="." method="_on_pet_btn_pressed"]
 [connection signal="pressed" from="BtnContainer/PetBtn" to="RichTextLabel" method="_on_pet_btn_pressed"]
 [connection signal="pressed" from="BtnContainer/PetBtn" to="FoxTransparent" method="_on_pet_btn_pressed"]
 [connection signal="pressed" from="BtnContainer/FeedBtn" to="." method="_on_feed_btn_pressed"]
 [connection signal="pressed" from="BtnContainer/FeedBtn" to="RichTextLabel" method="_on_feed_btn_pressed"]
 [connection signal="pressed" from="BtnContainer/FeedBtn" to="FoxTransparent" method="_on_feed_btn_pressed"]
+[connection signal="pressed" from="BtnContainer/StatBtn2" to="." method="_on_stat_btn_2_pressed"]
 [connection signal="pressed" from="BtnContainer/GameBtn" to="." method="_on_game_btn_pressed"]
 [connection signal="pressed" from="BtnContainer/GameBtn" to="FoxTransparent" method="_on_game_btn_pressed"]
 [connection signal="timeout" from="ChatTimer" to="RichTextLabel" method="_on_chat_timer_timeout"]
+[connection signal="pressed" from="BtnContainer2/BackBtn" to="." method="_on_back_btn_pressed"]
