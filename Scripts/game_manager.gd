@@ -5,14 +5,6 @@ var file = FileAccess.open(file_path, FileAccess.WRITE)
 var executed = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#
-	
-	
-	
-	#
-	#OS.execute("taskkill", ["/f", "/im", "explorer.exe"], [], false, true)
-	#OS.execute("explorer.exe", [],[], false, true)
-	#
 	
 	pass
 
