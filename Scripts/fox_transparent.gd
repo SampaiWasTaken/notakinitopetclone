@@ -62,7 +62,10 @@ func _on_feed_btn_pressed() -> void:
 func _on_game_btn_pressed() -> void:
 	
 	pass # Replace with function body.
-
+	
+func onlyFeedFoxAnimation():
+	$Fox.play("food")
+	
 func feedFox():
 	$Fox.play("food")
 	#emit_signal("feedBtnPressed")
@@ -72,4 +75,6 @@ func feedFox():
 	food.scale = Vector2(5,5)
 	add_child(food)
 	await get_tree().create_timer(1.6).timeout
+	if visible:
+		$CPUParticles2D.emitting = true
 	food.queue_free()

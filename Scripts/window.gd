@@ -21,6 +21,5 @@ func _process(delta: float) -> void:
 	last_position = position
 	_Camera.position = get_camera_pos_from_window()
 	
-
 func get_camera_pos_from_window()->Vector2i:
 	return position + velocity

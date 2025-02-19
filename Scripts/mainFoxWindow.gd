@@ -2,15 +2,13 @@ extends Window
 
 @onready var _Camera: Camera2D = $Camera2D
 
-
-
 var last_position: = Vector2i.ZERO
 var velocity: = Vector2i.ZERO
 @export var keepFoxInFrame = true
 @export var currentPosi:Vector2
 
 var dragging = false
-
+var dragging_offset = Vector2.ZERO
 
 
 func _ready() -> void:
@@ -39,6 +37,10 @@ func _physics_process(delta: float) -> void:
 	if keepFoxInFrame:
 		position.x = $"../../Window3".position.x
 		position.y = $"../../Window3".position.y + 300
+	
+	if dragging:
+		var mouse_pos = DisplayServer.mouse_get_position()
+		position = mouse_pos - dragging_offset  # Update window position
 
 func get_camera_pos_from_window()->Vector2i:
 	return position + velocity
@@ -62,14 +64,15 @@ func jump_window(offset: Vector2i, duration: float):
 	await tween.finished
 	
 	$FoxTransparent.petFox()
-
-
+	
 func _on_node_2d_2_mad_fox() -> void:
 	set_pos()
 	pass # Replace with function body.
 
-
-
 func _on_fox_transparent_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	print(event)
-	pass # Replace with function body.
+	if event is InputEventMouseButton:
+		if event.pressed:
+			dragging = true
+			dragging_offset = DisplayServer.mouse_get_position() - position
+		else:
+			dragging = false

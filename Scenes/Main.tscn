@@ -255,6 +255,7 @@ script = ExtResource("2_i528d")
 auto_translate_mode = 1
 initial_position = 2
 size = Vector2i(1205, 535)
+visible = false
 script = ExtResource("2_f4iug")
 
 [node name="Camera2D" type="Camera2D" parent="Window2"]
@@ -283,6 +284,8 @@ script = ExtResource("9_7sv18")
 [connection signal="gameOverText" from="." to="Window3/Control" method="_on_node_2d_2_game_over_text"]
 [connection signal="madFox" from="." to="Node2D/Window" method="_on_node_2d_2_mad_fox"]
 [connection signal="madFox" from="." to="Window3/Control" method="_on_node_2d_2_mad_fox"]
+[connection signal="input_event" from="Node2D/Window/FoxTransparent" to="Node2D/Window" method="_on_fox_transparent_input_event"]
+[connection signal="window_closed" from="Window3" to="." method="_on_window_3_window_closed"]
 [connection signal="feedBtnPressed" from="Window3/Control" to="Node2D/Window" method="_on_control_feed_btn_pressed"]
 [connection signal="feedBtnPressed" from="Window3/Control" to="Node2D/Window/FoxTransparent" method="_on_control_feed_btn_pressed"]
 [connection signal="gameBtnPressed" from="Window3/Control" to="." method="_on_control_game_btn_pressed"]
