@@ -1,9 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://bh0pejuvdeg81"]
+[gd_scene load_steps=11 format=3 uid="uid://bh0pejuvdeg81"]
 
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_0sxgf"]
 [ext_resource type="Texture2D" uid="uid://cduso63qp2meh" path="res://Assets/Sprites/Button_Pressed.png" id="1_o8mey"]
 [ext_resource type="Script" path="res://Scripts/chatLabel.gd" id="3_2n6y5"]
 [ext_resource type="PackedScene" uid="uid://b7wtswuue502b" path="res://Scenes/fox_transparent.tscn" id="4_jnyl7"]
+[ext_resource type="Texture2D" uid="uid://dmbk6l76p2lyt" path="res://Assets/Sprites/UI - 16x16 UI Tileset.png" id="5_p8fdo"]
+[ext_resource type="AudioStream" uid="uid://ju1y15anxn40" path="res://Assets/SFX/click_003.ogg" id="6_3lyew"]
+[ext_resource type="AudioStream" uid="uid://cnpfjwnf61kgq" path="res://Assets/SFX/food.mp3" id="7_aywba"]
 
 [sub_resource type="Image" id="Image_e00ge"]
 data = {
@@ -16,12 +19,15 @@ data = {
 
 [sub_resource type="ImageTexture" id="ImageTexture_14qlc"]
 image = SubResource("Image_e00ge")
+[sub_resource type="AtlasTexture" id="AtlasTexture_7cg84"]
+atlas = ExtResource("5_p8fdo")
+region = Rect2(212, 67, 40, 42)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fwtvr"]
-bg_color = Color(0.278431, 0.278431, 0.278431, 0.658824)
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnyww"]
+atlas = ExtResource("5_p8fdo")
+region = Rect2(212, 67, 40, 42)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n8dsm"]
-bg_color = Color(0.792157, 0, 0.117647, 0.705882)
+[sub_resource type="ImageTexture" id="ImageTexture_nts02"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -48,9 +54,10 @@ offset_bottom = 90.0
 scale = Vector2(0.937, 0.937)
 
 [node name="PetBtn" type="TextureButton" parent="BtnContainer"]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = SubResource("ImageTexture_14qlc")
+texture_normal = SubResource("AtlasTexture_7cg84")
 texture_pressed = ExtResource("1_o8mey")
 stretch_mode = 0
 
@@ -66,9 +73,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="FeedBtn" type="TextureButton" parent="BtnContainer"]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = SubResource("ImageTexture_14qlc")
+texture_normal = SubResource("AtlasTexture_7cg84")
 texture_pressed = ExtResource("1_o8mey")
 stretch_mode = 0
 
@@ -84,9 +92,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="StatBtn2" type="TextureButton" parent="BtnContainer"]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = SubResource("ImageTexture_14qlc")
+texture_normal = SubResource("AtlasTexture_7cg84")
 texture_pressed = ExtResource("1_o8mey")
 stretch_mode = 0
 
@@ -102,9 +111,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GameBtn" type="TextureButton" parent="BtnContainer"]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = SubResource("ImageTexture_14qlc")
+texture_normal = SubResource("AtlasTexture_7cg84")
 texture_pressed = ExtResource("1_o8mey")
 stretch_mode = 0
 
@@ -144,58 +154,85 @@ position = Vector2(0, 300)
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 97.715
-offset_top = 10.07
-offset_right = 349.835
-offset_bottom = 107.13
+offset_left = 98.0
+offset_top = 10.0
+offset_right = 352.0
+offset_bottom = 123.0
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Love" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="VBoxContainer/Love"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "❤️"
+horizontal_alignment = 2
+vertical_alignment = 1
 
-[node name="ProgressBar3" type="ProgressBar" parent="VBoxContainer/HBoxContainer2"]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="VBoxContainer/Love"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_fwtvr")
-theme_override_styles/fill = SubResource("StyleBoxFlat_n8dsm")
 value = 50.0
+nine_patch_stretch = true
+stretch_margin_left = 8
+stretch_margin_top = 8
+stretch_margin_right = 8
+stretch_margin_bottom = 8
+texture_over = SubResource("AtlasTexture_xnyww")
+texture_progress = SubResource("ImageTexture_nts02")
+texture_progress_offset = Vector2(1, 0)
+tint_progress = Color(0.570628, 0, 0.0697411, 1)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Game" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/Game"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "🎲"
+horizontal_alignment = 2
+vertical_alignment = 1
 
-[node name="ProgressBar3" type="ProgressBar" parent="VBoxContainer/HBoxContainer"]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="VBoxContainer/Game"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_fwtvr")
-theme_override_styles/fill = SubResource("StyleBoxFlat_n8dsm")
 value = 50.0
+nine_patch_stretch = true
+stretch_margin_left = 8
+stretch_margin_top = 8
+stretch_margin_right = 8
+stretch_margin_bottom = 8
+texture_over = SubResource("AtlasTexture_xnyww")
+texture_progress = SubResource("ImageTexture_nts02")
+texture_progress_offset = Vector2(1, 0)
+tint_progress = Color(0.570628, 0, 0.0697411, 1)
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Food" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3"]
+[node name="Label" type="Label" parent="VBoxContainer/Food"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "🍴"
+horizontal_alignment = 2
+vertical_alignment = 1
 
-[node name="ProgressBar3" type="ProgressBar" parent="VBoxContainer/HBoxContainer3"]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="VBoxContainer/Food"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_fwtvr")
-theme_override_styles/fill = SubResource("StyleBoxFlat_n8dsm")
 value = 50.0
+nine_patch_stretch = true
+stretch_margin_left = 8
+stretch_margin_top = 8
+stretch_margin_right = 8
+stretch_margin_bottom = 8
+texture_over = SubResource("AtlasTexture_xnyww")
+texture_progress = SubResource("ImageTexture_nts02")
+texture_progress_offset = Vector2(1, 0)
+tint_progress = Color(0.570628, 0, 0.0697411, 1)
 
 [node name="BtnContainer2" type="HBoxContainer" parent="."]
 visible = false
@@ -208,7 +245,7 @@ scale = Vector2(0.937, 0.937)
 [node name="BackBtn" type="TextureButton" parent="BtnContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = SubResource("ImageTexture_14qlc")
+texture_normal = SubResource("AtlasTexture_7cg84")
 texture_pressed = ExtResource("1_o8mey")
 stretch_mode = 0
 
@@ -219,9 +256,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "BACK"
+text = "Back"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="BtnClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_3lyew")
+
+[node name="FoodSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_aywba")
+volume_db = -15.0
 
 [connection signal="pressed" from="BtnContainer/PetBtn" to="." method="_on_pet_btn_pressed"]
 [connection signal="pressed" from="BtnContainer/PetBtn" to="RichTextLabel" method="_on_pet_btn_pressed"]

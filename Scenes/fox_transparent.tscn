@@ -305,13 +305,13 @@ texture_filter = 1
 position = Vector2(173, 124)
 scale = Vector2(13, 13)
 sprite_frames = SubResource("SpriteFrames_ju2fm")
-animation = &"food"
+animation = &"pet"
 autoplay = "idle"
-frame = 9
+frame = 2
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(164, 165)
+position = Vector2(164, 159)
 shape = SubResource("RectangleShape2D_8vxa5")
 
 [node name="FoodMarker" type="Marker2D" parent="."]
