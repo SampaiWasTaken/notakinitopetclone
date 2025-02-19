@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c0l52vm8rroyp"]
+[gd_scene load_steps=15 format=3 uid="uid://c0l52vm8rroyp"]
 
 [ext_resource type="Texture2D" uid="uid://d0dqj8afkjlb5" path="res://Assets/Parallax/1-Background.png" id="1_i1rbg"]
 [ext_resource type="Script" path="res://Scripts/flappy_fox.gd" id="1_n4ghd"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://b3hcr1ukyevhd" path="res://Assets/Parallax/6-close light.png" id="6_4rd3h"]
 [ext_resource type="Texture2D" uid="uid://bi31fbusfo68r" path="res://Assets/Parallax/7-tileset.png" id="7_6y7lr"]
 [ext_resource type="PackedScene" uid="uid://btu2l4loe4mu5" path="res://Scenes/flappy_fox_player.tscn" id="8_ecxg6"]
+[ext_resource type="AudioStream" uid="uid://cxuf1y4y7ore3" path="res://Assets/SFX/Sad Descent.ogg" id="12_7gf5r"]
+[ext_resource type="AudioStream" uid="uid://cuy1oxq0j3em8" path="res://Assets/SFX/gameover1.ogg" id="13_jddgt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2mjad"]
 size = Vector2(2823.74, 65.25)
@@ -103,5 +105,14 @@ scale = Vector2(0.5, 0.5)
 
 [node name="Camera2D2" type="Camera2D" parent="FlappyFox"]
 position = Vector2(2, -80)
+
+[node name="BGLoop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_7gf5r")
+autoplay = true
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_jddgt")
+volume_db = -15.0
+pitch_scale = 0.75
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

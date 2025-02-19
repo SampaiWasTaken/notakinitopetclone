@@ -19,6 +19,7 @@ func _on_pet_btn_pressed() -> void:
 	emit_signal("petBtnPressed")
 	Globals.addLove(5)
 	playBtnClick()
+	$PetSound.play()
 
 
 func _on_feed_btn_pressed() -> void:
@@ -26,6 +27,7 @@ func _on_feed_btn_pressed() -> void:
 	Globals.addFood(5)
 	
 	playBtnClick()
+	await get_tree().create_timer(0.25).timeout
 	$FoodSound.play()
 	pass
 

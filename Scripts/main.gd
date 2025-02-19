@@ -8,7 +8,6 @@ var gameRunning = false
 signal gameOverText
 var deathCount = 0
 signal madFox
-var foxmad = false
 
 func _ready():
 	#_SubWindow.world_2d = _MainWindow.world_2d
@@ -52,11 +51,11 @@ func _on_fox_dead(window: Window) -> void:
 	#$Node2D/Window.always_on_top = true
 	gameRunning = false
 	deathCount += 1
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(1.8).timeout
 	#TODO Change count
-	if deathCount >= 1 and not foxmad:
+	if deathCount >= 1 and not Globals.foxmad:
 		emit_signal("madFox")
-		foxmad = true
+		Globals.foxmad = true
 	window.queue_free()
 	emit_signal("gameOverText")
 	
