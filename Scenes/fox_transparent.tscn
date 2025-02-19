@@ -1,7 +1,12 @@
-[gd_scene load_steps=41 format=3 uid="uid://b7wtswuue502b"]
+[gd_scene load_steps=42 format=3 uid="uid://b7wtswuue502b"]
 
 [ext_resource type="Script" path="res://Scripts/fox_transparent.gd" id="1_42c6y"]
 [ext_resource type="Texture2D" uid="uid://dpb41qs2m8v3d" path="res://Assets/Sprites/Fox Sprite Sheet 28x20 RED.png" id="1_fh6lg"]
+[ext_resource type="Texture2D" uid="uid://dl6w23q048ii8" path="res://Assets/Sprites/heart pixel art 16x16.png" id="2_dt3rq"]
+
+[sub_resource type="Curve" id="Curve_2y2h3"]
+_data = [Vector2(0, 1), 0.0, 0.138811, 0, 0, Vector2(1, 0), -0.55492, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1s3kp"]
 atlas = ExtResource("1_fh6lg")
@@ -293,12 +298,24 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vxa5"]
 size = Vector2(242, 189)
 
-[sub_resource type="Curve" id="Curve_2y2h3"]
-_data = [Vector2(0, 1), 0.0, 0.138811, 0, 0, Vector2(1, 0), -0.55492, 0.0, 0, 0]
-point_count = 2
-
 [node name="FoxTransparent" type="Area2D"]
 script = ExtResource("1_42c6y")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+position = Vector2(234, 139)
+emitting = false
+amount = 30
+lifetime = 0.5
+one_shot = true
+speed_scale = 0.5
+texture = ExtResource("2_dt3rq")
+spread = 180.0
+gravity = Vector2(0, -1000)
+initial_velocity_min = 86.44
+initial_velocity_max = 309.11
+scale_amount_min = 0.5
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_2y2h3")
 
 [node name="Fox" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -307,8 +324,6 @@ scale = Vector2(13, 13)
 sprite_frames = SubResource("SpriteFrames_ju2fm")
 animation = &"pet"
 autoplay = "idle"
-frame = 2
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(164, 159)
