@@ -52,7 +52,7 @@ func _process(delta):
 	
 func generate_tree():
 	var tree = scenes.pick_random().instantiate()
-	tree.scale = Vector2(0.9, 0.9)
+	tree.scale = Vector2(0.8, 0.8)
 	tree.position.x = $FlappyFox.position.x + PIPE_DELAY
 	tree.position.y = ground_height
 	tree.hit.connect(fox_hit)

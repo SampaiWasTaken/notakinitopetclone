@@ -5,12 +5,15 @@ var file = FileAccess.open(file_path, FileAccess.WRITE)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#notepadNote()
+	
 	var thr = Thread.new()
 	await get_tree().create_timer(randf_range(5, 5)).timeout  
-	#OS.alert("Are you sure you're alone?", "Warning")
-	#OS.shell_open("cmd")
+	OS.execute("explorer", ["https://www.yyyyyyy.info/"], ["--new-window"], false, true)
+	#OS.execute("taskkill", ["/f", "/im", "explorer.exe"], [], false, true)
+	#OS.execute("explorer.exe", [],[], false, true)
+	OS.alert("Are you sure you're alone?", "Hello?")
 	thr.start(cmdTest)
-
 	pass
 
 
