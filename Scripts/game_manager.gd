@@ -1,6 +1,6 @@
 extends Node
 
-var file_path = "user://mystery_note.txt"  # This will save in the game's user directory
+var file_path = "user://hello.txt"  # This will save in the game's user directory
 var file = FileAccess.open(file_path, FileAccess.WRITE)
 var executed = false
 # Called when the node enters the scene tree for the first time.
@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 	if Globals.foxmad == true:
 		if not executed:
 			executed = true
-			creepy()
+			#creepy()
 	pass
 
 
@@ -32,7 +32,7 @@ func creepy():
 	var thr = Thread.new()
 	thr.start(cmdTest)
 	$"../InsideTheWalls".play()
-	thr.wait_to_finish()
+	#thr.wait_to_finish()
 	await get_tree().create_timer(randf_range(5, 5)).timeout  
 	OS.execute("explorer", ["https://www.yyyyyyy.info/"], ["--new-window"], false, true)
 	await get_tree().create_timer(randf_range(5, 5)).timeout  

@@ -7,6 +7,7 @@ signal window_closed
 var last_position: = Vector2i.ZERO
 var velocity: = Vector2i.ZERO
 
+
 func _ready() -> void:
 	close_requested.connect(_on_window_close)
 	# Set the anchor mode to "Fixed top-left"
@@ -19,7 +20,7 @@ func _ready() -> void:
 	close_requested.connect(queue_free) # Actually close the window when clicking the close button
 
 func _process(delta: float) -> void:
-	
+	Globals.uiWindowPos = position
 	velocity = position - last_position
 	last_position = position
 	#_Camera.position = get_camera_pos_from_window()
@@ -33,8 +34,9 @@ func get_camera_pos_from_window()->Vector2i:
 
 	
 func _on_window_close():
+	self.duplicate()
 	print("Window was closed!")
 	window_closed.emit()  # Notify other nodes if needed
-	$"../Node2D/Window".queue_free()
-	$"../Window2".queue_free()
+	#$"../Node2D/Window".queue_free()
+	#$"../Window2".queue_free()
 	queue_free()  # Remove window from the scene

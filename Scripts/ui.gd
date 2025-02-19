@@ -9,9 +9,13 @@ func _ready() -> void:
 	pass # Replace with function body.
 	Globals.connect("updated_food", Callable(self, "_on_food_change"))
 	Globals.connect("updated_fun", Callable(self, "_on_fun_change"))  
-	Globals.connect("updated_love", Callable(self, "_on_love_change"))               
+	Globals.connect("updated_love", Callable(self, "_on_love_change"))           
+	
+		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Globals.foxmad:
+		$FoxTransparent.visible = false
 	pass
 
 
