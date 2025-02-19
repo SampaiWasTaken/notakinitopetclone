@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cduso63qp2meh"
-path="res://.godot/imported/Button_Pressed.png-6a8edbdc3f8dad61aaeaf8c7d08cb082.ctex"
+uid="uid://dpb41qs2m8v3d"
+path="res://.godot/imported/Fox Sprite Sheet 28x20 RED.png-74d95719db6696b6a781d8aa12f0c21d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Button_Pressed.png"
-dest_files=["res://.godot/imported/Button_Pressed.png-6a8edbdc3f8dad61aaeaf8c7d08cb082.ctex"]
+source_file="res://Assets/Sprites/Fox Sprite Sheet 28x20 RED.png"
+dest_files=["res://.godot/imported/Fox Sprite Sheet 28x20 RED.png-74d95719db6696b6a781d8aa12f0c21d.ctex"]
 
 [params]
 

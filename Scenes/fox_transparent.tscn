@@ -1,7 +1,7 @@
 [gd_scene load_steps=40 format=3 uid="uid://b7wtswuue502b"]
 
 [ext_resource type="Script" path="res://Scripts/fox_transparent.gd" id="1_42c6y"]
-[ext_resource type="Texture2D" uid="uid://dpb41qs2m8v3d" path="res://Assets/Food/Fox Sprite Sheet 28x20 RED.png" id="1_fh6lg"]
+[ext_resource type="Texture2D" uid="uid://dpb41qs2m8v3d" path="res://Assets/Sprites/Fox Sprite Sheet 28x20 RED.png" id="1_fh6lg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1s3kp"]
 atlas = ExtResource("1_fh6lg")

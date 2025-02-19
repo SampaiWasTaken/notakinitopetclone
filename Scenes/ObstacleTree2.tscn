@@ -1,7 +1,7 @@
 [gd_scene load_steps=44 format=3 uid="uid://brdknytupub3f"]
 
 [ext_resource type="Script" path="res://Scripts/obstacle_tree.gd" id="1_ipehq"]
-[ext_resource type="Texture2D" uid="uid://b3wkcpiluwgdi" path="res://Assets/Blood Tree 2 Sprite Sheet 128x96.png" id="1_wycb7"]
+[ext_resource type="Texture2D" uid="uid://b3wkcpiluwgdi" path="res://Assets/Sprites/Blood Tree 2 Sprite Sheet 128x96.png" id="1_wycb7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_omuwo"]
 atlas = ExtResource("1_wycb7")

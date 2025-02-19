@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://btu2l4loe4mu5"]
 
-[ext_resource type="Texture2D" uid="uid://dpb41qs2m8v3d" path="res://Assets/Food/Fox Sprite Sheet 28x20 RED.png" id="1_2y28f"]
+[ext_resource type="Texture2D" uid="uid://dpb41qs2m8v3d" path="res://Assets/Sprites/Fox Sprite Sheet 28x20 RED.png" id="1_2y28f"]
 [ext_resource type="Script" path="res://Scripts/flappy_fox_player.gd" id="1_ppbi5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8ocqx"]

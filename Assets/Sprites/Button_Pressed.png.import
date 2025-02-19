@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpb41qs2m8v3d"
-path="res://.godot/imported/Fox Sprite Sheet 28x20 RED.png-b80b2a84bfc37e383f7f0043fd48fe61.ctex"
+uid="uid://cduso63qp2meh"
+path="res://.godot/imported/Button_Pressed.png-d464589631a7f04463b5e40e6d2b9bce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Food/Fox Sprite Sheet 28x20 RED.png"
-dest_files=["res://.godot/imported/Fox Sprite Sheet 28x20 RED.png-b80b2a84bfc37e383f7f0043fd48fe61.ctex"]
+source_file="res://Assets/Sprites/Button_Pressed.png"
+dest_files=["res://.godot/imported/Button_Pressed.png-d464589631a7f04463b5e40e6d2b9bce.ctex"]
 
 [params]
 

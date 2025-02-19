@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3wkcpiluwgdi"
-path="res://.godot/imported/Blood Tree 2 Sprite Sheet 128x96.png-327ecb229b081667795f97222569ef2b.ctex"
+uid="uid://ceht4nh3f3lmq"
+path="res://.godot/imported/Blood Tree 1 Sprite Sheet 112x128.png-db053c8595be6ba14738595f1296235e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Blood Tree 2 Sprite Sheet 128x96.png"
-dest_files=["res://.godot/imported/Blood Tree 2 Sprite Sheet 128x96.png-327ecb229b081667795f97222569ef2b.ctex"]
+source_file="res://Assets/Sprites/Blood Tree 1 Sprite Sheet 112x128.png"
+dest_files=["res://.godot/imported/Blood Tree 1 Sprite Sheet 112x128.png-db053c8595be6ba14738595f1296235e.ctex"]
 
 [params]
 

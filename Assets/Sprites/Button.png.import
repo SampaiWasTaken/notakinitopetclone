@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://cc8lvjxrr7rqw"
+path="res://.godot/imported/Button.png-b14b37ec1bc42611ee88706627cf3562.image"
+
+[deps]
+
+source_file="res://Assets/Sprites/Button.png"
+dest_files=["res://.godot/imported/Button.png-b14b37ec1bc42611ee88706627cf3562.image"]
+
+[params]
+

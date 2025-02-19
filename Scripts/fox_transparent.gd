@@ -66,7 +66,7 @@ func _on_game_btn_pressed() -> void:
 func feedFox():
 	$Fox.play("food")
 	#emit_signal("feedBtnPressed")
-	var food = preload("res://food.tscn").instantiate()
+	var food = preload("res://Scenes/food.tscn").instantiate()
 	food.randomize_food()
 	food.position = $FoodMarker.position
 	food.scale = Vector2(5,5)
