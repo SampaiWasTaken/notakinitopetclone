@@ -39,3 +39,15 @@ func _on_node_2d_2_mad_fox() -> void:
 	madFox = true
 	$RichTextLabel.mad_fox()
 	pass # Replace with function body.
+
+
+func _on_back_btn_pressed() -> void:
+	$BtnContainer.visible = true
+	$VBoxContainer.visible = false
+	$BtnContainer2.visible = false
+
+
+func _on_stat_btn_2_pressed() -> void:
+	$BtnContainer.visible = false
+	$VBoxContainer.visible = true
+	$BtnContainer2.visible = true

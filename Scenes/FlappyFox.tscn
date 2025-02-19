@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/flappy_fox.gd" id="1_n4ghd"]
 [ext_resource type="Texture2D" uid="uid://dtaughv3akdxu" path="res://Assets/Parallax/2-super far.png" id="2_vuy23"]
 [ext_resource type="PackedScene" uid="uid://c6d0gtu5sq54m" path="res://Scenes/ObstacleTree.tscn" id="2_ye56o"]
-[ext_resource type="PackedScene" path="res://Scenes/ObstacleTree2.tscn" id="3_7llvq"]
+[ext_resource type="PackedScene" uid="uid://brdknytupub3f" path="res://Scenes/ObstacleTree2.tscn" id="3_7llvq"]
 [ext_resource type="Texture2D" uid="uid://7ym6b7ffixnm" path="res://Assets/Parallax/3-far.png" id="3_ii1fe"]
 [ext_resource type="Texture2D" uid="uid://mau47agm6der" path="res://Assets/Parallax/4-far light.png" id="4_wvdnt"]
 [ext_resource type="Texture2D" uid="uid://7ryi001os4l6" path="res://Assets/Parallax/5-close.png" id="5_qyi56"]
