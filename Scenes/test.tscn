@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdabhxuuhy251"]
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_s0vmh"]
+file = "res://Assets/SFX/lv_0_20240308005158.ogg"
+
+[node name="test" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(181, 321)
+
+[node name="wtf" type="VideoStreamPlayer" parent="."]
+custom_minimum_size = Vector2(480, 480)
+offset_right = 942.0
+offset_bottom = 631.0
+stream = SubResource("VideoStreamTheora_s0vmh")
+volume_db = -20.97
+autoplay = true
