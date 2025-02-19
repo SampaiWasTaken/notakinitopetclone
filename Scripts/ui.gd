@@ -7,8 +7,7 @@ var madFox = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
-
-
+	Globals.connect("updated_food", Callable(self, "_on_food_change"))             
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -20,6 +19,8 @@ func _on_pet_btn_pressed() -> void:
 
 func _on_feed_btn_pressed() -> void:
 	emit_signal("feedBtnPressed")
+	Globals.addFood(5)
+	
 	pass
 
 
@@ -40,7 +41,9 @@ func _on_node_2d_2_mad_fox() -> void:
 	$RichTextLabel.mad_fox()
 	pass # Replace with function body.
 
-
+func _on_food_change() -> void:
+	$VBoxContainer/HBoxContainer3/ProgressBar3.value = Globals.food
+	
 func _on_back_btn_pressed() -> void:
 	$BtnContainer.visible = true
 	$VBoxContainer.visible = false

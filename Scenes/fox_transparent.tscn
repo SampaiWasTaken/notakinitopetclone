@@ -302,12 +302,13 @@ script = ExtResource("1_42c6y")
 
 [node name="Fox" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-texture_repeat = 1
 position = Vector2(173, 124)
-scale = Vector2(12.85, 12.85)
+scale = Vector2(13, 13)
 sprite_frames = SubResource("SpriteFrames_ju2fm")
-animation = &"idle"
+animation = &"food"
 autoplay = "idle"
+frame = 9
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(164, 165)

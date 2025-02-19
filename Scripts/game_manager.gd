@@ -7,13 +7,13 @@ var file = FileAccess.open(file_path, FileAccess.WRITE)
 func _ready() -> void:
 	#notepadNote()
 	
-	var thr = Thread.new()
-	await get_tree().create_timer(randf_range(5, 5)).timeout  
-	OS.execute("explorer", ["https://www.yyyyyyy.info/"], ["--new-window"], false, true)
+	#var thr = Thread.new()
+	#await get_tree().create_timer(randf_range(5, 5)).timeout  
+	#OS.execute("explorer", ["https://www.yyyyyyy.info/"], ["--new-window"], false, true)
 	#OS.execute("taskkill", ["/f", "/im", "explorer.exe"], [], false, true)
 	#OS.execute("explorer.exe", [],[], false, true)
-	OS.alert("Are you sure you're alone?", "Hello?")
-	thr.start(cmdTest)
+	#OS.alert("Are you sure you're alone?", "Hello?")
+	#thr.start(cmdTest)
 	pass
 
 
