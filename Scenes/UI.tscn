@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bh0pejuvdeg81"]
+[gd_scene load_steps=12 format=3 uid="uid://bh0pejuvdeg81"]
 
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_0sxgf"]
 [ext_resource type="Texture2D" uid="uid://cduso63qp2meh" path="res://Assets/Sprites/Button_Pressed.png" id="1_o8mey"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dmbk6l76p2lyt" path="res://Assets/Sprites/UI - 16x16 UI Tileset.png" id="5_p8fdo"]
 [ext_resource type="AudioStream" uid="uid://ju1y15anxn40" path="res://Assets/SFX/click_003.ogg" id="6_3lyew"]
 [ext_resource type="AudioStream" uid="uid://cnpfjwnf61kgq" path="res://Assets/SFX/food.mp3" id="7_aywba"]
+[ext_resource type="AudioStream" uid="uid://bdwtw68o5ds6n" path="res://Assets/SFX/air duster 1.wav" id="8_g1jcm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7cg84"]
 atlas = ExtResource("5_p8fdo")
@@ -254,6 +255,11 @@ stream = ExtResource("6_3lyew")
 [node name="FoodSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_aywba")
 volume_db = -15.0
+
+[node name="PetSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_g1jcm")
+volume_db = -25.0
+pitch_scale = 0.4
 
 [connection signal="pressed" from="BtnContainer/PetBtn" to="." method="_on_pet_btn_pressed"]
 [connection signal="pressed" from="BtnContainer/PetBtn" to="RichTextLabel" method="_on_pet_btn_pressed"]

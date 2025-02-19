@@ -65,7 +65,8 @@ func fox_hit():
 	game_running = false
 	game_over = true
 	$"FlappyFox/AnimatedSprite2D".play("rip")
-
+	$DeathSound.play()
+	
 func _on_timer_timeout() -> void:
 	$Timer.wait_time = randf_range(0.7, 1.7)
 	generate_tree()

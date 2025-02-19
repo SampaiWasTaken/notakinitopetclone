@@ -17,11 +17,13 @@ func _process(delta: float) -> void:
 func _on_pet_btn_pressed() -> void:
 	emit_signal("petBtnPressed")
 	playBtnClick()
+	$PetSound.play()
 
 
 func _on_feed_btn_pressed() -> void:
 	emit_signal("feedBtnPressed")
 	playBtnClick()
+	await get_tree().create_timer(0.25).timeout
 	$FoodSound.play()
 	pass
 
