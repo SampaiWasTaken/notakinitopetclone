@@ -2,6 +2,8 @@ extends Control
 signal petBtnPressed
 signal feedBtnPressed
 signal gameBtnPressed
+var petCD = false
+var foodCD = false
 
 var madFox = false
 # Called when the node enters the scene tree for the first time.
@@ -23,18 +25,23 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_pet_btn_pressed() -> void:
-	emit_signal("petBtnPressed")
-	Globals.addLove(5)
-	playBtnClick()
-	$PetSound.play()
+	if not petCD:
+		petCD = true
+		$petTimer.start()
+		emit_signal("petBtnPressed")
+		Globals.addLove(5)
+		playBtnClick()
+		$PetSound.play()
 
 func _on_feed_btn_pressed() -> void:
-	emit_signal("feedBtnPressed")
-	Globals.addFood(5)
-	playBtnClick()
-	await get_tree().create_timer(0.25).timeout
-	$FoodSound.play()
-	pass
+	if not foodCD:
+		foodCD = true
+		$foodTimer.start()
+		emit_signal("feedBtnPressed")
+		Globals.addFood(5)
+		playBtnClick()
+		await get_tree().create_timer(0.25).timeout
+		$FoodSound.play()
 
 func _on_game_btn_pressed() -> void:
 	emit_signal("gameBtnPressed")
@@ -78,3 +85,11 @@ func _on_stat_btn_2_pressed() -> void:
 	
 func playBtnClick():
 	$BtnClick.play()
+
+
+func _on_pet_timer_timeout() -> void:
+	petCD = false
+
+
+func _on_food_timer_timeout() -> void:
+	foodCD = false

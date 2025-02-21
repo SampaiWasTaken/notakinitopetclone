@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://iw8h2ailcrdp"]
+[gd_scene load_steps=3 format=3 uid="uid://iw8h2ailcrdp"]
+
+[ext_resource type="Script" path="res://Scenes/catVid.gd" id="1_f0rbl"]
 
 [sub_resource type="VideoStreamTheora" id="VideoStreamTheora_s0vmh"]
 file = "res://Assets/SFX/lv_0_20240308005158.ogg"
@@ -6,6 +8,7 @@ file = "res://Assets/SFX/lv_0_20240308005158.ogg"
 [node name="test" type="Window"]
 size = Vector2i(480, 480)
 borderless = true
+script = ExtResource("1_f0rbl")
 
 [node name="wtf" type="VideoStreamPlayer" parent="."]
 custom_minimum_size = Vector2(480, 480)
@@ -14,3 +17,5 @@ offset_bottom = 631.0
 stream = SubResource("VideoStreamTheora_s0vmh")
 volume_db = -25.0
 autoplay = true
+
+[connection signal="finished" from="wtf" to="." method="_on_wtf_finished"]
