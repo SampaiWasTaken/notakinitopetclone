@@ -36,6 +36,7 @@ func get_camera_pos_from_window()->Vector2i:
 func _on_window_close():
 	self.duplicate()
 	print("Window was closed!")
+	Globals.save_data()
 	window_closed.emit()  # Notify other nodes if needed
 	#$"../Node2D/Window".queue_free()
 	#$"../Window2".queue_free()

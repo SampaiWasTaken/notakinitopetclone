@@ -79,5 +79,6 @@ func _on_fox_transparent_input_event(viewport: Node, event: InputEvent, shape_id
 			
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		Globals.save_data()
 		emit_signal("oof")
 		
