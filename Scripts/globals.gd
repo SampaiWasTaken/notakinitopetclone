@@ -59,14 +59,16 @@ func addLove(amount:float):
 		love = 0
 	emit_signal("updated_love")
 	
-#storing and loading the DATA
+#storing DATA
 
 func save_data():
 	print("Saving Data")
 	var save_dict = {
 	"food":food,
 	"fun":fun,
-	"love":love
+	"love":love,
+	"startedAlready": startedAlready,
+	"foxmad": foxmad
 	}
 	print(save_dict)
 	var file = FileAccess.open("user://savegame.json", FileAccess.WRITE)
@@ -91,3 +93,5 @@ func load_data():
 			food = save_dict.get("food", 0) # if food exists it loads value, if not it sets it to 0
 			fun = save_dict.get("fun", 0)
 			love = save_dict.get("love", 0)
+			startedAlready = save_dict.get("startedAlready", false)
+			foxmad = save_dict.get("foxmad", false)
