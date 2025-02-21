@@ -255,7 +255,7 @@ stream = ExtResource("6_3lyew")
 
 [node name="FoodSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_aywba")
-volume_db = -15.0
+volume_db = -20.0
 
 [node name="PetSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_g1jcm")

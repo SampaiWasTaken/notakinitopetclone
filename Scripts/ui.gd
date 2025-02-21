@@ -33,7 +33,6 @@ func _on_feed_btn_pressed() -> void:
 
 func _on_game_btn_pressed() -> void:
 	emit_signal("gameBtnPressed")
-	Globals.addFun(5)
 	playBtnClick()
 
 func toggleFoxVisibility(x:bool) -> void:

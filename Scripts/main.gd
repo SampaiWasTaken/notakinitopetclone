@@ -22,6 +22,7 @@ func _ready():
 		
 func _on_control_game_btn_pressed() -> void:
 	if not gameRunning:
+		Globals.addFun(5)
 		gameRunning = true
 		#$Node2D/Window.always_on_top = false
 		var new_window = Window.new()
@@ -78,6 +79,7 @@ func _on_window_3_window_closed() -> void:
 		var gameScene = game.instantiate()
 		new_window.add_child(gameScene)
 		get_tree().root.add_child(new_window)
+		
 	else:
 		var window = preload("res://Scenes/window_3.tscn").instantiate()
 		window.connect("window_closed", _on_window_3_window_closed)

@@ -108,6 +108,7 @@ position = Vector2(2, -80)
 
 [node name="BGLoop" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_7gf5r")
+volume_db = -15.0
 autoplay = true
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
