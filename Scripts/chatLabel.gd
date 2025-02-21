@@ -25,12 +25,12 @@ var deathBlip = "You let me die, %s. Why?" % OS.get_environment("USERNAME") if O
 func _ready() -> void:
 	self.text
 	if not Globals.startedAlready:
+		start_typing(greeting)
+	else:
 		if Globals.foxDied:
 			start_typing(deathBlip)
 		else:
-			start_typing(greeting)
-	else:
-		start_typing(textSecond)
+			start_typing(textSecond)
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

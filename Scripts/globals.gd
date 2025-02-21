@@ -27,6 +27,10 @@ func _ready():
 	timer.one_shot = false
 	timer.timeout.connect(_on_timer_timeout)
 	add_child(timer)
+	if food <= 0 or love <= 0 or fun <= 0:
+		food = 25
+		love = 25
+		fun = 25
 
 func _on_timer_timeout():
 	var decrease_amount1 = randi_range(min_decrease, max_decrease)

@@ -26,7 +26,7 @@ func _fox_dead_very_sad():
 	$Window3.playDeathAnim()
 	$Node2D/Window/FoxTransparent.playDeathAnim()
 	await get_tree().create_timer(1.3).timeout
-	get_tree().root.queue_free()
+	get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 	pass
 
 func _on_control_game_btn_pressed() -> void:
