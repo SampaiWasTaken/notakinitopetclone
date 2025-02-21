@@ -36,7 +36,7 @@ func playvid():
 func randomizeEvents():
 	while not picks.is_empty():
 		executed = true
-		await get_tree().create_timer(randf_range(5, 5)).timeout
+		await get_tree().create_timer(randf_range(15, 30)).timeout
 		var picked = picks.pick_random()
 		picks.erase(picked)
 		

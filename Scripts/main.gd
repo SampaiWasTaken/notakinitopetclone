@@ -52,7 +52,7 @@ func _on_fox_dead(window: Window) -> void:
 	deathCount += 1
 	await get_tree().create_timer(1.8).timeout
 	#TODO Change count
-	if deathCount >= 1 and not Globals.foxmad:
+	if deathCount >= 3 and not Globals.foxmad:
 		emit_signal("madFox")
 		Globals.foxmad = true
 	window.queue_free()
