@@ -62,8 +62,7 @@ func jump_window(offset: Vector2i, duration: float):
 	# Move down and land
 	tween.tween_property($".", "position", end_pos, duration / 2).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_IN)
 	await tween.finished
-	
-	$FoxTransparent.petFox()
+	$FoxTransparent._on_fox_animation_finished()
 	
 func _on_node_2d_2_mad_fox() -> void:
 	set_pos()

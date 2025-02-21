@@ -18,6 +18,7 @@ func _process(delta: float) -> void:
 	pass
 
 func petFox() -> void:
+	
 	$Fox.play("pet")
 	if visible:
 		$CPUParticles2D2.emitting = true

@@ -45,7 +45,7 @@ func start_typing(text):
 	for i in range(fullText.length()):
 		visible_text += fullText[i]
 		self.text = "[center]%s[/center]" % visible_text
-		await get_tree().create_timer(0.07).timeout  # Adjust speed
+		await get_tree().create_timer(0.05).timeout  # Adjust speed
 	talking = false
 
 
