@@ -21,7 +21,7 @@ var username = OS.get_environment("USERNAME") if OS.has_environment("USERNAME") 
 var greeting = "I can see you."
 
 var talking = false
-
+var executed = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -32,6 +32,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if not executed and Globals.foxmad:
+		executed = true
+		mad_fox()
 	pass
 
 func start_typing(text):
