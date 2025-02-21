@@ -5,8 +5,6 @@ extends CharacterBody2D
 @export var JUMP_SPEED : int = -700
 @export var JUMP_VELOCITY = -700
 
-
-
 func _ready() -> void:
 	pass
 	

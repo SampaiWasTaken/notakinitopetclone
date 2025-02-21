@@ -22,23 +22,19 @@ func _process(delta: float) -> void:
 		$FoxTransparent.visible = false
 	pass
 
-
 func _on_pet_btn_pressed() -> void:
 	emit_signal("petBtnPressed")
 	Globals.addLove(5)
 	playBtnClick()
 	$PetSound.play()
 
-
 func _on_feed_btn_pressed() -> void:
 	emit_signal("feedBtnPressed")
 	Globals.addFood(5)
-	
 	playBtnClick()
 	await get_tree().create_timer(0.25).timeout
 	$FoodSound.play()
 	pass
-
 
 func _on_game_btn_pressed() -> void:
 	emit_signal("gameBtnPressed")
