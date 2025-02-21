@@ -79,7 +79,7 @@ func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		save_data()  # Save before quitting
 		get_tree().quit()
-		
+
 
 #loading data
 func load_data():

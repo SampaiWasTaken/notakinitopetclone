@@ -282,11 +282,9 @@ stream = ExtResource("10_5gnaw")
 
 [node name="Wrong" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_eio7d")
-volume_db = -20.0
 
 [node name="RipSOund" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_yw26q")
-volume_db = -20.0
 
 [connection signal="madFox" from="." to="Node2D/Window" method="_on_node_2d_2_mad_fox"]
 [connection signal="close_requested" from="Node2D/Window" to="." method="_on_window_close_requested"]
