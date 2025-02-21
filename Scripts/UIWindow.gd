@@ -24,6 +24,9 @@ func _process(delta: float) -> void:
 func get_camera_pos_from_window()->Vector2i:
 	return position + velocity
 
+func playDeathAnim():
+	$Control.playDeathAnim()
+
 func _on_window_close():
 	self.duplicate()
 	Globals.startedAlready=true

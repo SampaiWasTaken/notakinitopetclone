@@ -93,3 +93,6 @@ func _on_pet_timer_timeout() -> void:
 
 func _on_food_timer_timeout() -> void:
 	foodCD = false
+	
+func playDeathAnim():
+	$FoxTransparent.playDeathAnim()

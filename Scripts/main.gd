@@ -18,8 +18,17 @@ func _ready():
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MINIMIZED)
 	var control = $Window3/Control
 	control.connect("gameBtnPressed", _on_control_game_btn_pressed)
+	Globals.connect("fox_dead_very_sad", _fox_dead_very_sad)
 
-		
+func _fox_dead_very_sad():
+	Globals.foxDied = true
+	$Failure.play()
+	$Window3.playDeathAnim()
+	$Node2D/Window/FoxTransparent.playDeathAnim()
+	await get_tree().create_timer(1.3).timeout
+	get_tree().root.queue_free()
+	pass
+
 func _on_control_game_btn_pressed() -> void:
 	if not gameRunning:
 		Globals.addFun(5)

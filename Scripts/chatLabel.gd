@@ -20,12 +20,15 @@ var greeting = "I can see you."
 var talking = false
 var executed = false
 var textSecond = "Hello again, %s." % OS.get_environment("USERNAME") if OS.has_environment("USERNAME") else "Player"
-
+var deathBlip = "You let me die, %s. Why?" % OS.get_environment("USERNAME") if OS.has_environment("USERNAME") else "Player"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	self.text
 	if not Globals.startedAlready:
-		start_typing(greeting)
+		if Globals.foxDied:
+			start_typing(deathBlip)
+		else:
+			start_typing(greeting)
 	else:
 		start_typing(textSecond)
 	pass # Replace with function body.

@@ -3,6 +3,7 @@ extends Node
 signal updated_food
 signal updated_fun
 signal updated_love
+signal fox_dead_very_sad
 
 #global Variables 
 var food = 50
@@ -11,10 +12,11 @@ var love = 50
 var foxmad = false
 var uiWindowPos = Vector2(0,0)
 var startedAlready = false
+var foxDied = false
 
 @export var min_decrease: int = 1  # Minimum amount to decrease
-@export var max_decrease: int = 5 # Maximum amount to decrease
-@export var interval: float = 180 # Time in seconds (3 minutes)
+@export var max_decrease: int = 7 # Maximum amount to decrease
+@export var interval: float = 10 # Time in seconds (3 minutes)
 
 
 func _ready():
@@ -33,6 +35,8 @@ func _on_timer_timeout():
 	addFood(decrease_amount1*-1)
 	addFun(decrease_amount2*-1)
 	addLove(decrease_amount3*-1)
+	if food <= 0 or love <= 0 or fun <= 0:
+		emit_signal("fox_dead_very_sad")
 	
 
 func addFood(amount:float):
@@ -64,6 +68,7 @@ func addLove(amount:float):
 func save_data():
 	print("Saving Data")
 	var save_dict = {
+	"foxDied":foxDied,
 	"food":food,
 	"fun":fun,
 	"love":love,
@@ -90,6 +95,7 @@ func load_data():
 		file.close()
 		var save_dict = JSON.parse_string(content)
 		if save_dict:
+			foxDied = save_dict.get("foxDied", false)
 			food = save_dict.get("food", 0) # if food exists it loads value, if not it sets it to 0
 			fun = save_dict.get("fun", 0)
 			love = save_dict.get("love", 0)

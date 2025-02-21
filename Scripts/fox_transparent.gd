@@ -77,3 +77,6 @@ func feedFox():
 	if visible:
 		$CPUParticles2D.emitting = true
 	food.queue_free()
+
+func playDeathAnim():
+	$Fox.play("vanish")

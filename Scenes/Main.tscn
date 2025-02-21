@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://ckwy6bykoaj66"]
+[gd_scene load_steps=41 format=3 uid="uid://ckwy6bykoaj66"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_w7e5r"]
 [ext_resource type="Texture2D" uid="uid://dpb41qs2m8v3d" path="res://Assets/Sprites/Fox Sprite Sheet 28x20 RED.png" id="2_e21dc"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://v2alrmfwvh7k" path="res://Assets/SFX/doorwood_open.wav" id="10_5gnaw"]
 [ext_resource type="AudioStream" uid="uid://d188e3yeeq22s" path="res://Assets/SFX/wrong.ogg" id="11_eio7d"]
 [ext_resource type="AudioStream" uid="uid://kyvwqvut2jao" path="res://Scripts/quote3.ogg" id="11_yw26q"]
+[ext_resource type="AudioStream" uid="uid://rhfia7p4uttv" path="res://Assets/SFX/failure.ogg" id="12_dvc4f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1s3kp"]
 atlas = ExtResource("2_e21dc")
@@ -286,6 +287,10 @@ volume_db = -20.0
 
 [node name="RipSOund" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_yw26q")
+volume_db = -20.0
+
+[node name="Failure" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_dvc4f")
 volume_db = -20.0
 
 [connection signal="madFox" from="." to="Node2D/Window" method="_on_node_2d_2_mad_fox"]
