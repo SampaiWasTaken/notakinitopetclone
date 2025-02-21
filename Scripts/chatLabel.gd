@@ -13,16 +13,21 @@ var pet_blips = ["Are you sure this is real?", "Your hands feel... warm.", "You�
 var death_blips = ["That was… disappointing. Try again.", "You’ll try again. You don’t have a choice.", "Do you even want to win?", "You’re not very good at this, are you?",
 "You let me down.", "Disappointing."]
 
+
 var visible_text = ""
 var username = OS.get_environment("USERNAME") if OS.has_environment("USERNAME") else "Player"
 var greeting = "I can see you."
 var talking = false
 var executed = false
+var textSecond = "Hello again, %s." % OS.get_environment("USERNAME") if OS.has_environment("USERNAME") else "Player"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	self.text
-	start_typing(greeting)
+	if not Globals.startedAlready:
+		start_typing(greeting)
+	else:
+		start_typing(textSecond)
 	pass # Replace with function body.
 
 

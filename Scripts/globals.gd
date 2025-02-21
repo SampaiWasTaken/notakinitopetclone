@@ -10,6 +10,7 @@ var fun = 50
 var love = 50
 var foxmad = false
 var uiWindowPos = Vector2(0,0)
+var startedAlready = false
 
 @export var min_decrease: int = 1  # Minimum amount to decrease
 @export var max_decrease: int = 5 # Maximum amount to decrease
