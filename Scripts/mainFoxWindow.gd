@@ -13,23 +13,15 @@ signal oof
 
 func _ready() -> void:
 	$FoxTransparent.visible = false
-	# Set the anchor mode to "Fixed top-left"
-	# Easier to work with since it corresponds to the window coordinates
-	# print(DisplayServer.get_primary_screen())
-	#DisplayServer.window_set_current_screen(0)
 	_Camera.anchor_mode = Camera2D.ANCHOR_MODE_FIXED_TOP_LEFT
-	
 	#transient = true # Make the window considered as a child of the main window
 	close_requested.connect(queue_free) # Actually close the window when clicking the close button
-	
 	currentPosi = position
-	
 	#physics_object_picking = true !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	# needs to be true for area2d to work
 	
 
 func _physics_process(delta: float) -> void:
-	
 	velocity = position - last_position
 	last_position = position
 	#_Camera.position = get_camera_pos_from_window()

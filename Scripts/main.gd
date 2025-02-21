@@ -16,7 +16,6 @@ func _ready():
 	_SubWindow3.world_2d = _MainWindow.world_2d
 	DisplayServer.window_set_size(Vector2i(1, 1))
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MINIMIZED)
-	
 	var control = $Window3/Control
 	control.connect("gameBtnPressed", _on_control_game_btn_pressed)
 
@@ -43,13 +42,8 @@ func _on_control_game_btn_pressed() -> void:
 		var game = preload("res://Scenes/FlappyFox.tscn")
 		var gameScene = game.instantiate()
 		new_window.add_child(gameScene)
-		
 		gameScene.foxDead.connect(_on_fox_dead.bind(new_window))
 		get_tree().root.add_child(new_window)
-		
-		
-	
-	pass # Replace with function body.
 	
 func _on_fox_dead(window: Window) -> void:
 	#$Node2D/Window.always_on_top = true
@@ -62,10 +56,6 @@ func _on_fox_dead(window: Window) -> void:
 		Globals.foxmad = true
 	window.queue_free()
 	emit_signal("gameOverText")
-	
-	
-	
-
 
 func _on_window_3_window_closed() -> void:
 	exitCount += 1
@@ -74,10 +64,8 @@ func _on_window_3_window_closed() -> void:
 		new_window.title = "New Window"
 		# Set window size
 		new_window.size = Vector2i(360, 360)  
-		
 		new_window.transparent_bg = true
 		new_window.visible = true  
-		
 		#new_window.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST = 0
 		new_window.set("canvas_item_default_texture_filter", 0)
 		new_window.set("transparent", 1)
@@ -89,7 +77,6 @@ func _on_window_3_window_closed() -> void:
 		var game = preload("res://Scenes/scrolling_text.tscn")
 		var gameScene = game.instantiate()
 		new_window.add_child(gameScene)
-		
 		get_tree().root.add_child(new_window)
 	else:
 		var window = preload("res://Scenes/window_3.tscn").instantiate()

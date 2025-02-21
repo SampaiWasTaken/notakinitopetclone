@@ -4,10 +4,8 @@ var random_blips = ["I can hear you breathing.", "Do you ever feel like you're b
 "The walls whisper when you're not around.", "Do you ever think about what’s outside this screen?", "My last owner left me… but you won't, right?",
 "I hear them scratching at the edges.", "Did you lock the door?", "The colors are wrong today."]
 
-
 var food_blips = ["Are you feeding me... or keeping me here?", "This doesn’t taste like it used to.", "You keep feeding me. Why?", "Does this make you feel better?", "Does it taste the same to you?",
 "You’re sure this is food, right?", "This isn’t enough. It never is."]
-
 
 var pet_blips = ["Are you sure this is real?", "Your hands feel... warm.", "You’re different from the others.", "You’re leaving something behind. Can’t you feel it?",
 "I don’t know if I like this. But I don’t want you to stop.", "Your hand feels different this time.", "I think you’re making a mistake."]
@@ -16,10 +14,8 @@ var death_blips = ["That was… disappointing. Try again.", "You’ll try again.
 "You let me down.", "Disappointing."]
 
 var visible_text = ""
-
 var username = OS.get_environment("USERNAME") if OS.has_environment("USERNAME") else "Player"
 var greeting = "I can see you."
-
 var talking = false
 var executed = false
 
@@ -48,8 +44,6 @@ func start_typing(text):
 		await get_tree().create_timer(0.05).timeout  # Adjust speed
 	talking = false
 
-
-
 func _on_chat_timer_timeout() -> void:
 	if not talking:
 		start_typing(random_blips.pick_random())
@@ -58,7 +52,6 @@ func _on_chat_timer_timeout() -> void:
 func _on_feed_btn_pressed() -> void:
 	if not talking:
 		start_typing(food_blips.pick_random())
-
 
 func _on_pet_btn_pressed() -> void:
 	if not talking:

@@ -7,10 +7,8 @@ var picks = [0, 1, 2, 3]
 var thr1 = Thread.new()
 var thr2 = Thread.new()
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	
+func _ready() -> void:	
 	pass
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -21,7 +19,6 @@ func _process(delta: float) -> void:
 				await get_tree().create_timer(randf_range(5, 5)).timeout  
 				randomizeEvents()
 	pass
-
 
 func notepadNote():
 	file.store_string("Hello, %s.\nAre you still watching me?" % OS.get_environment("USERNAME"))
