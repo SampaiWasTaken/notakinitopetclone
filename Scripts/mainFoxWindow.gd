@@ -12,13 +12,16 @@ var dragging_offset = Vector2.ZERO
 signal oof
 
 func _ready() -> void:
-	$FoxTransparent.visible = false
+	if not Globals.foxmad:
+		$FoxTransparent.visible = false
+	else:
+		keepFoxInFrame = false
 	_Camera.anchor_mode = Camera2D.ANCHOR_MODE_FIXED_TOP_LEFT
 	#transient = true # Make the window considered as a child of the main window
 	close_requested.connect(queue_free) # Actually close the window when clicking the close button
 	currentPosi = position
 	#physics_object_picking = true !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	# needs to be true for area2d to work
+	
 	
 
 func _physics_process(delta: float) -> void:

@@ -17,6 +17,7 @@ func _ready() -> void:
 	$VBoxContainer/Game/TextureProgressBar.value = Globals.fun
 	$VBoxContainer/Love/TextureProgressBar.value = Globals.love        
 	
+	
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

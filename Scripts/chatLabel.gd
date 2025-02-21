@@ -23,7 +23,6 @@ var textSecond = "Hello again, %s." % OS.get_environment("USERNAME") if OS.has_e
 var deathBlip = "You let me die, %s. Why?" % OS.get_environment("USERNAME") if OS.has_environment("USERNAME") else "Player"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	self.text
 	if not Globals.startedAlready:
 		start_typing(greeting)
 	else:
@@ -69,7 +68,8 @@ func _on_pet_death_text() -> void:
 		start_typing(death_blips.pick_random())
 		
 func mad_fox():
-	start_typing("You disappoint me, %s." % username)
+	if not talking:
+		start_typing("You disappoint me, %s." % username)
 	
 	random_blips.append_array(["I can hear you breathing %s." % username, "Do you ever feel like you're being watched?", "Do you ever think about what’s outside this screen, %s?" % username, 
 	"My last owner left me… but you won't, right, %s?" % username, "I know you better than you think, %s." % username, "Something about today feels… wrong. Do you feel it too, %s?" % username
