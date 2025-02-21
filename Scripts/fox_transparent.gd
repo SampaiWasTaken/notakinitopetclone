@@ -61,7 +61,7 @@ func _on_pet_btn_pressed() -> void:
 	pass # Replace with function body.
 
 func _on_feed_btn_pressed() -> void:
-	feedFox()
+	#feedFox()
 	pass # Replace with function body.
 
 func _on_game_btn_pressed() -> void:

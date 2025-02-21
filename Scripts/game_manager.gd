@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 	if Globals.foxmad == true:
 		if not executed:
 			executed = true
-			creepy()
+			#creepy()
 	pass
 
 
