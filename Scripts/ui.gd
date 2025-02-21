@@ -9,7 +9,12 @@ func _ready() -> void:
 	pass # Replace with function body.
 	Globals.connect("updated_food", Callable(self, "_on_food_change"))
 	Globals.connect("updated_fun", Callable(self, "_on_fun_change"))  
-	Globals.connect("updated_love", Callable(self, "_on_love_change"))           
+	Globals.connect("updated_love", Callable(self, "_on_love_change"))   
+	
+	$VBoxContainer/Food/TextureProgressBar.value = Globals.food
+	$VBoxContainer/Game/TextureProgressBar.value = Globals.fun
+	$VBoxContainer/Love/TextureProgressBar.value = Globals.love        
+	
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

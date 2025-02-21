@@ -18,6 +18,7 @@ var startedAlready = false
 
 
 func _ready():
+	load_data()
 	var timer = Timer.new()
 	timer.wait_time = interval
 	timer.autostart = true
@@ -57,3 +58,36 @@ func addLove(amount:float):
 	elif love < 0:
 		love = 0
 	emit_signal("updated_love")
+	
+#storing and loading the DATA
+
+func save_data():
+	print("Saving Data")
+	var save_dict = {
+	"food":food,
+	"fun":fun,
+	"love":love
+	}
+	print(save_dict)
+	var file = FileAccess.open("user://savegame.json", FileAccess.WRITE)
+	file.store_string(JSON.stringify(save_dict))
+	file.close()
+	
+func _notification(what):
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		save_data()  # Save before quitting
+		get_tree().quit()
+		
+
+#loading data
+func load_data():
+	print("loading Data")
+	if FileAccess.file_exists("user://savegame.json"):
+		var file = FileAccess.open("user://savegame.json", FileAccess.READ)
+		var content = file.get_as_text()
+		file.close()
+		var save_dict = JSON.parse_string(content)
+		if save_dict:
+			food = save_dict.get("food", 0) # if food exists it loads value, if not it sets it to 0
+			fun = save_dict.get("fun", 0)
+			love = save_dict.get("love", 0)
