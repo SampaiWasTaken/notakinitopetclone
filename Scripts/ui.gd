@@ -10,7 +10,6 @@ func _ready() -> void:
 	Globals.connect("updated_food", Callable(self, "_on_food_change"))
 	Globals.connect("updated_fun", Callable(self, "_on_fun_change"))  
 	Globals.connect("updated_love", Callable(self, "_on_love_change"))           
-	
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -18,13 +17,11 @@ func _process(delta: float) -> void:
 		$FoxTransparent.visible = false
 	pass
 
-
 func _on_pet_btn_pressed() -> void:
 	emit_signal("petBtnPressed")
 	Globals.addLove(5)
 	playBtnClick()
 	$PetSound.play()
-
 
 func _on_feed_btn_pressed() -> void:
 	emit_signal("feedBtnPressed")
@@ -33,7 +30,6 @@ func _on_feed_btn_pressed() -> void:
 	await get_tree().create_timer(0.25).timeout
 	$FoodSound.play()
 	pass
-
 
 func _on_game_btn_pressed() -> void:
 	emit_signal("gameBtnPressed")

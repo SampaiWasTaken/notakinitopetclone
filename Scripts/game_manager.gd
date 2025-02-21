@@ -10,14 +10,14 @@ var thr2 = Thread.new()
 func _ready() -> void:	
 	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+#TODO change timer  and enable
 func _process(delta: float) -> void:
 	if Globals.foxmad == true:
 		if not executed:
 			executed = true
 			while not picks.is_empty():
 				await get_tree().create_timer(randf_range(5, 5)).timeout  
-				randomizeEvents()
+				#randomizeEvents()
 	pass
 
 func notepadNote():
